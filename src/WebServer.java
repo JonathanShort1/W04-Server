@@ -4,15 +4,20 @@ import java.util.*;
 
 class WebServer {
 
+    private static final int PORT_MIN = 5000;
+    private static final int PORT_MAX = 60000;
+
     public static void main(String argv[]) throws Exception {
 
-        PrintWriter writer = new PrintWriter(new FileWriter("AccessLog.log",true));
+        PrintWriter writer = new PrintWriter(new FileWriter("logs/AccessLog.log",true));
         int portNumber = 64578;
         if (argv.length > 0) {
             try {
-                portNumber = Integer.parseInt(argv[0]);
+                int input = Integer.parseInt(argv[0]);
+                if (input >= PORT_MIN && input <= PORT_MAX) {
+                    portNumber = input;
+                }
             } catch (IllegalArgumentException e) {
-                System.out.println("please provide a correct port number");
                 e.printStackTrace();
             }
         }

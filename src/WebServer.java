@@ -6,11 +6,20 @@ class WebServer {
 
     private static final int PORT_MIN = 5000;
     private static final int PORT_MAX = 60000;
+    private static final int DEFAULT_PORT = 45689;
 
-    public static void main(String argv[]) throws Exception {
+    private static final String HOME_PAGE = "index.html";
 
-        PrintWriter writer = new PrintWriter(new FileWriter("logs/AccessLog.log",true));
-        int portNumber = 64578;
+    public static void main(String argv[]) {
+
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter(new FileWriter("logs/AccessLog.log",true));
+        } catch (IOException e) {
+            System.out.println("Connecting writer to log file has failed - possibly wrong path given");
+            e.printStackTrace();
+        }
+        int portNumber = DEFAULT_PORT;
         if (argv.length > 0) {
             try {
                 int input = Integer.parseInt(argv[0]);
@@ -21,7 +30,13 @@ class WebServer {
                 e.printStackTrace();
             }
         }
-        ServerSocket listenSocket = new ServerSocket(portNumber);
+        ServerSocket listenSocket = null;
+        try {
+            listenSocket = new ServerSocket(portNumber);
+        } catch (IOException e) {
+            System.out.println("Server socket creation has failed");
+            e.printStackTrace();
+        }
         boolean running = true;
         while(running){
             process(listenSocket, writer);
@@ -55,8 +70,10 @@ class WebServer {
 
             if (tokenisedLine.hasMoreTokens() && tokenisedLine.nextToken().equals("GET")) {
                 fileName = tokenisedLine.nextToken();
-                if (fileName.startsWith("/")) {
+                if (fileName.startsWith("/") && fileName.length() > 1) {
                     fileName = fileName.substring(1);
+                } else if (fileName.equals("/")) {
+                    fileName = HOME_PAGE;
                 }
                 try {
                     File file = new File(fileName);

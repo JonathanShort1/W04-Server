@@ -9,12 +9,13 @@ class WebServer {
     private static final int DEFAULT_PORT = 45689;
 
     private static final String HOME_PAGE = "index.html";
+    private static final String LOG_FILE = "logs/AccessLog.log";
 
     public static void main(String argv[]) {
 
         PrintWriter writer = null;
         try {
-            writer = new PrintWriter(new FileWriter("logs/AccessLog.log",true));
+            writer = new PrintWriter(new FileWriter(LOG_FILE,true));
         } catch (IOException e) {
             System.out.println("Connecting writer to log file has failed - possibly wrong path given");
             e.printStackTrace();
@@ -67,6 +68,7 @@ class WebServer {
                 e.printStackTrace();
             }
 
+            String host = getHost(inFromClient);
 
             if (tokenisedLine.hasMoreTokens() && tokenisedLine.nextToken().equals("GET")) {
                 fileName = tokenisedLine.nextToken();
@@ -91,6 +93,8 @@ class WebServer {
                     }
                     outToClient.writeBytes("Content-Length: " + numOfBytes + "\r\n");
                     outToClient.writeBytes("\r\n");
+                    //sendInitialTuple(outToClient, connectionSocket);
+                    //outToClient.writeBytes("\r\n");
                     outToClient.write(fileInBytes, 0, numOfBytes);
                 } catch (FileNotFoundException e) {
                     status = "404";
@@ -106,14 +110,14 @@ class WebServer {
                     outToClient.writeBytes("\r\n");
                     outToClient.write(fileInBytes, 0, numOfBytes);
                 }
-                logAccess(writer, inFromClient, requestMessageLine, date, status, numOfBytes);
+                logAccess(writer, host, requestMessageLine, date, status, numOfBytes);
                 connectionSocket.close();
             } else {
                 System.out.println("Bad Request Message, not a GET request");
             }
 
         } catch (FileNotFoundException e) {
-            System.out.println("File does not exist");
+            System.out.println("File does not exist - favicon.ico not found");
       
             e.printStackTrace();
         } catch (IOException e) {
@@ -121,15 +125,33 @@ class WebServer {
         }
     }
 
-    private static void logAccess(PrintWriter writer, BufferedReader inFromClient, String requestLine, String date, String status, int numBytes) throws IOException {
-        String hostHeader = inFromClient.readLine();
+    private static String getHost(BufferedReader reader) throws IOException {
+        String hostHeader = reader.readLine();
         String host = hostHeader.split(" ")[1];
         host = host.substring(host.length() - 4);
+        return host;
+    }
+
+    private static void sendInitialTuple(DataOutputStream outputStream, Socket socket) throws IOException {
+        try {
+            TCPTuple tuple = new TCPTuple(socket.getInetAddress().getHostAddress(),socket.getPort(), socket.getLocalAddress().getHostAddress(), socket.getLocalPort());
+            outputStream.writeBytes("Host: " + tuple.getHostAddress()
+                    + " Host port: " + tuple.getHostPortNumber()
+                    + "\nLocal: " + tuple.getLocalAddress()
+                    + " Local port: " + tuple.getLocalPortNumber());
+        } catch (UnknownHostException e) {
+            System.out.println("Cannot send initial TCP tuple, Host name was not correct");
+            e.printStackTrace();
+        }
+    }
+
+    private static void logAccess(PrintWriter writer, String host, String requestLine, String date, String status, int numBytes) throws IOException {
         try {
             InetAddress address = InetAddress.getByName(host);
             writer.println(address.getHostAddress() + " [" + date + "]" + " " + "\"" + requestLine + "\" " + status + " " + numBytes);
             writer.flush();
         } catch (UnknownHostException e) {
+            System.out.println("Cannot write to access log file, host name incorrect");
             e.printStackTrace();
         }
     }

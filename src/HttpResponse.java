@@ -1,6 +1,4 @@
 import java.io.*;
-import java.util.Arrays;
-import java.util.Date;
 
 public class HttpResponse {
 
@@ -10,8 +8,6 @@ public class HttpResponse {
     private String contentType;
     private int numOfBytes;
     private File file;
-
-
 
     private byte[] fileInBytes;
 
@@ -29,13 +25,15 @@ public class HttpResponse {
     }
 
     public void respond(DataOutputStream outToClient, String date) throws IOException {
-        outToClient.writeBytes("HTTP/1.0 " + this.status + " Not Found\r\n");
-        outToClient.writeBytes(date);
+        outToClient.writeBytes("HTTP/1.0 " + this.status + " " + this.reasonPhrase + "\r\n");
+        outToClient.writeBytes(date + "\r\n");
         outToClient.writeBytes("Content-Length: + " + this.numOfBytes + "\r\n");
+        if (!(this.getContentType() == null)) {
+            outToClient.writeBytes(this.getContentType());
+        }
         outToClient.writeBytes("\r\n");
         outToClient.write(this.fileInBytes, 0, this.numOfBytes);
     }
-
 
     public String getContentType(File file) {
         String content = "";
@@ -45,6 +43,10 @@ public class HttpResponse {
             content = "Content-Type:image/gif\r\n";
         } else if (file.getName().endsWith(".html")) {
             content = "Content-Type:text/html\r\n";
+        } else if (file.getName().endsWith(".css")) {
+            content = "Content-Type:text/css\r\n";
+        } else if (file.getName().endsWith(".ico")) {
+            content = "Content-Type:image/x-icon\r\n";
         }
         return content;
     }

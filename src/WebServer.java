@@ -56,8 +56,8 @@ class WebServer {
         try{
             Socket connectionSocket = listenSocket.accept();
             String date = new Date().toString();
-            String status = "200";
-            int numOfBytes = 0;
+            HttpResponse httpResponse = new HttpResponse( HTTP_V);
+            File file;
 
             BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
             outToClient = new DataOutputStream(connectionSocket.getOutputStream());
@@ -67,7 +67,7 @@ class WebServer {
             try {
                 requestMessageLine = inFromClient.readLine();
                 tokenisedLine = new StringTokenizer(requestMessageLine);
-                host = getHost(inFromClient);
+                //host = getHost(inFromClient);
             } catch (NullPointerException e) {
                 requestMessageLine = "";
                 System.out.println("Null pointer at request message!");
@@ -81,8 +81,7 @@ class WebServer {
                 } else if (fileName.equals("/")) {
                     fileName = HOME_PAGE;
                 }
-                File file;
-                HttpResponse httpResponse = new HttpResponse( HTTP_V);
+
                 try {
                     file = new File(fileName);
                     if (file.exists()) {
@@ -104,12 +103,17 @@ class WebServer {
                     System.out.println("File requested not found!");
                     e.printStackTrace();
                 }
-                logAccess(writer, host, requestMessageLine, date, httpResponse.getStatus(), httpResponse.getNumOfBytes());
-                connectionSocket.close();
             } else {
-                System.out.println("Bad Request Message, not a GET request");
+                String errorFile = "error400.html";
+                file = new File(errorFile);
+                httpResponse.setFile(file);
+                httpResponse.setStatus("400");
+                httpResponse.setReasonPhrase("Bad Request");
+                httpResponse.setupResponse();
+                httpResponse.respond(outToClient, date);
             }
-
+            logAccess(writer, connectionSocket.getInetAddress().getHostAddress(), requestMessageLine, date, httpResponse.getStatus(), httpResponse.getNumOfBytes());
+            connectionSocket.close();
         } catch (FileNotFoundException e) {
             System.out.println("File does not exist - favicon.ico not found");
       
@@ -117,13 +121,6 @@ class WebServer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private static String getHost(BufferedReader reader) throws IOException {
-        String hostHeader = reader.readLine();
-        String host = hostHeader.split(" ")[1];
-        host = host.substring(host.length() - 4);
-        return host;
     }
 
     private static void sendInitialTuple(DataOutputStream outputStream, Socket socket) throws IOException {
@@ -140,14 +137,8 @@ class WebServer {
     }
 
     private static void logAccess(PrintWriter writer, String host, String requestLine, String date, String status, int numBytes) throws IOException {
-        try {
-            InetAddress address = InetAddress.getByName(host);
-            writer.println(address.getHostAddress() + " [" + date + "]" + " " + "\"" + requestLine + "\" " + status + " " + numBytes);
-            writer.flush();
-        } catch (UnknownHostException e) {
-            System.out.println("Cannot write to access log file, host name incorrect");
-            e.printStackTrace();
-        }
+        writer.println(host + " [" + date + "]" + " " + "\"" + requestLine + "\" " + status + " " + numBytes);
+        writer.flush();
     }
 }
 

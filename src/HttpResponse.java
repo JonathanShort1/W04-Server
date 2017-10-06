@@ -1,6 +1,16 @@
 import java.io.*;
+import java.net.Socket;
+import java.util.Date;
+import java.util.StringTokenizer;
 
-public class HttpResponse {
+public class HttpResponse implements Runnable{
+
+    private static final String HOME_PAGE = "index.html";
+    private static final String ERROR_404 = "error404.html";
+    private static final String ERROR_400 = "error400.html";
+    private static final String HTTP_V = "HTTP/1.0";
+
+    private Thread thread;
 
     private String status;
     private String httpVersion;
@@ -8,12 +18,93 @@ public class HttpResponse {
     private String contentType;
     private int numOfBytes;
     private File file;
+    private Socket connectionSocket;
+    private PrintWriter writer;
 
     private byte[] fileInBytes;
 
-    public HttpResponse(String httpVersion) {
-        this.httpVersion = httpVersion;
+    HttpResponse(PrintWriter writer, Socket socket) {
+        this.connectionSocket = socket;
+        this.writer = writer;
+    }
 
+    @Override
+    public void run() {
+        String requestMessageLine;
+        String fileName;
+        DataOutputStream outToClient;
+
+        try{
+            String date = new Date().toString();
+            File file;
+
+            BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
+            outToClient = new DataOutputStream(connectionSocket.getOutputStream());
+
+            StringTokenizer tokenisedLine = new StringTokenizer("");
+            try {
+                requestMessageLine = inFromClient.readLine();
+                tokenisedLine = new StringTokenizer(requestMessageLine);
+            } catch (NullPointerException e) {
+                requestMessageLine = "";
+                System.out.println("Null pointer at request message!");
+                e.printStackTrace();
+            }
+
+            if (tokenisedLine.hasMoreTokens() && tokenisedLine.nextToken().equals("GET")) {
+                fileName = tokenisedLine.nextToken();
+                if (fileName.startsWith("/") && fileName.length() > 1) {
+                    fileName = fileName.substring(1);
+                } else if (fileName.equals("/")) {
+                    fileName = HOME_PAGE;
+                }
+
+                try {
+                    file = new File(fileName);
+                    if (file.exists()) {
+                        this.setFile(file);
+                        this.setStatus("200");
+                        this.setReasonPhrase("Ok");
+                        this.respond(outToClient, date, connectionSocket);
+                    } else {
+                        file = new File(ERROR_404);
+                        this.setFile(file);
+                        this.setStatus("404");
+                        this.setReasonPhrase("Not Found");
+                        this.respond(outToClient, date,connectionSocket);
+                    }
+                } catch (FileNotFoundException e) {
+                    System.out.println("File requested not found!");
+                    e.printStackTrace();
+                }
+            } else {
+                file = new File(ERROR_400);
+                this.setFile(file);
+                this.setStatus("400");
+                this.setReasonPhrase("Bad Request");
+                this.respond(outToClient, date,connectionSocket);
+            }
+            logAccess(writer, connectionSocket.getInetAddress().getHostAddress(), requestMessageLine, date, this.getStatus(), this.getNumOfBytes());
+            connectionSocket.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File does not exist - favicon.ico not found");
+
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void logAccess(PrintWriter writer, String host, String requestLine, String date, String status, int numBytes) throws IOException {
+        writer.println(host + " [" + date + "]" + " " + "\"" + requestLine + "\" " + status + " " + numBytes);
+        writer.flush();
+    }
+
+    public void start() {
+        if (thread == null) {
+            thread = new Thread(this, "Connection");
+            thread.start();
+        }
     }
 
     public void setupResponse() throws IOException {
@@ -24,7 +115,8 @@ public class HttpResponse {
 
     }
 
-    public void respond(DataOutputStream outToClient, String date) throws IOException {
+    public void respond(DataOutputStream outToClient, String date, Socket connectionSocket) throws IOException {
+        this.setupResponse();
         outToClient.writeBytes("HTTP/1.0 " + this.status + " " + this.reasonPhrase + "\r\n");
         outToClient.writeBytes(date + "\r\n");
         outToClient.writeBytes("Content-Length: + " + this.numOfBytes + "\r\n");
@@ -33,6 +125,9 @@ public class HttpResponse {
         }
         outToClient.writeBytes("\r\n");
         outToClient.write(this.fileInBytes, 0, this.numOfBytes);
+        outToClient.writeBytes("Host address: " + connectionSocket.getInetAddress().getHostAddress() + " port: " + connectionSocket.getPort() +
+                "\nLocal address: " + connectionSocket.getLocalAddress() + " local port: " + connectionSocket.getLocalPort() + "\n");
+
     }
 
     public String getContentType(File file) {
@@ -102,5 +197,6 @@ public class HttpResponse {
     public void setFile(File file) {
         this.file = file;
     }
+
 
 }

@@ -10,6 +10,7 @@ class WebServer {
 
     private static final String HOME_PAGE = "index.html";
     private static final String LOG_FILE = "logs/AccessLog.log";
+    private static final String HTTP_V = "HTTP/1.0";
 
     public static void main(String argv[]) {
 
@@ -55,23 +56,23 @@ class WebServer {
         try{
             Socket connectionSocket = listenSocket.accept();
             String date = new Date().toString();
-            String status;
-            int numOfBytes;
+            String status = "200";
+            int numOfBytes = 0;
 
             BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
             outToClient = new DataOutputStream(connectionSocket.getOutputStream());
 
             StringTokenizer tokenisedLine = new StringTokenizer("");
+            String host = "";
             try {
                 requestMessageLine = inFromClient.readLine();
                 tokenisedLine = new StringTokenizer(requestMessageLine);
+                host = getHost(inFromClient);
             } catch (NullPointerException e) {
                 requestMessageLine = "";
                 System.out.println("Null pointer at request message!");
                 e.printStackTrace();
             }
-
-            String host = getHost(inFromClient);
 
             if (tokenisedLine.hasMoreTokens() && tokenisedLine.nextToken().equals("GET")) {
                 fileName = tokenisedLine.nextToken();
@@ -80,40 +81,30 @@ class WebServer {
                 } else if (fileName.equals("/")) {
                     fileName = HOME_PAGE;
                 }
+                File file;
+                HttpResponse httpResponse = new HttpResponse( HTTP_V);
                 try {
-                    File file = new File(fileName);
-                    numOfBytes = (int)file.length();
-                    FileInputStream inFile = new FileInputStream(fileName);
-                    byte[] fileInBytes = new byte[numOfBytes];
-                    inFile.read(fileInBytes);
-                    status = "200";
-                    outToClient.writeBytes("HTTP/1.0 " + status + " Document Follows\r\n");
-                    if (fileName.endsWith(".jpg")) {
-                        outToClient.writeBytes("Content-Type:image/jpeg\r\n");
+                    file = new File(fileName);
+                    if (file.exists()) {
+                        httpResponse.setFile(file);
+                        httpResponse.setStatus("200");
+                        httpResponse.setReasonPhrase("Ok");
+                        httpResponse.setupResponse();
+                        httpResponse.respond(outToClient, date);
+                    } else {
+                        String errorFile = "error404.html";
+                        file = new File(errorFile);
+                        httpResponse.setFile(file);
+                        httpResponse.setStatus("404");
+                        httpResponse.setReasonPhrase("Not Found");
+                        httpResponse.setupResponse();
+                        httpResponse.respond(outToClient, date);
                     }
-                    if (fileName.endsWith(".gif")) {
-                        outToClient.writeBytes("Content-Type:image/gif\r\n");
-                    }
-                    outToClient.writeBytes("Content-Length: " + numOfBytes + "\r\n");
-                    outToClient.writeBytes("\r\n");
-                    //sendInitialTuple(outToClient, connectionSocket);
-                    //outToClient.writeBytes("\r\n");
-                    outToClient.write(fileInBytes, 0, numOfBytes);
                 } catch (FileNotFoundException e) {
-                    status = "404";
-                    String errorFile = "error404.html";
-                    File file = new File(errorFile);
-                    numOfBytes = (int)file.length();
-                    FileInputStream inFile = new FileInputStream(errorFile);
-                    byte[] fileInBytes = new byte[numOfBytes];
-                    inFile.read(fileInBytes);
-                    outToClient.writeBytes("HTTP/1.0 " + status + " Not Found\r\n");
-                    outToClient.writeBytes(date);
-                    outToClient.writeBytes("Content-Length: + " + numOfBytes + "\r\n");
-                    outToClient.writeBytes("\r\n");
-                    outToClient.write(fileInBytes, 0, numOfBytes);
+                    System.out.println("File requested not found!");
+                    e.printStackTrace();
                 }
-                logAccess(writer, host, requestMessageLine, date, status, numOfBytes);
+                logAccess(writer, host, requestMessageLine, date, httpResponse.getStatus(), httpResponse.getNumOfBytes());
                 connectionSocket.close();
             } else {
                 System.out.println("Bad Request Message, not a GET request");

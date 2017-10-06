@@ -44,6 +44,9 @@ class WebServer {
         }
     }
 
+    //TODO NEED TO SPLIT THIS INTO MULTIPLE METHODS
+    //Don't Repeat Yo-self
+
     private static void process(ServerSocket listenSocket, PrintWriter writer) {
         String requestMessageLine;
         String fileName;

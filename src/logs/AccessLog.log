@@ -259,3 +259,17 @@
 0.0.22.57 [Thu Oct 05 22:40:27 BST 2017] "GET /index.html HTTP/1.1" 200 889
 0.0.22.57 [Thu Oct 05 22:40:27 BST 2017] "GET /css/style.css HTTP/1.1" 200 30
 0.0.22.57 [Thu Oct 05 22:40:27 BST 2017] "GET /favicon.ico HTTP/1.1" 200 1150
+0.0.22.57 [Thu Oct 05 22:57:10 BST 2017] "GET /index.html HTTP/1.1" 200 889
+0.0.22.57 [Thu Oct 05 22:57:10 BST 2017] "GET /css/style.css HTTP/1.1" 200 30
+0.0.22.57 [Thu Oct 05 22:57:10 BST 2017] "GET /favicon.ico HTTP/1.1" 200 1150
+0.0.22.57 [Thu Oct 05 22:57:12 BST 2017] "GET /p.html HTTP/1.1" 404 308
+0.0.22.57 [Thu Oct 05 22:57:12 BST 2017] "GET /index.html HTTP/1.1" 200 889
+0.0.22.57 [Thu Oct 05 22:57:13 BST 2017] "GET /css/style.css HTTP/1.1" 200 30
+0.0.22.57 [Thu Oct 05 22:57:19 BST 2017] "GET /logs/p.html HTTP/1.1" 404 308
+0.0.22.57 [Thu Oct 05 22:57:19 BST 2017] "GET /index.html HTTP/1.1" 200 889
+0.0.22.57 [Thu Oct 05 22:57:21 BST 2017] "GET /css/style.css HTTP/1.1" 200 30
+0.0.22.57 [Fri Oct 06 14:59:50 BST 2017] "GET /index.html HTTP/1.1" 200 889
+0.0.22.57 [Fri Oct 06 14:59:51 BST 2017] "GET /css/style.css HTTP/1.1" 200 30
+0.0.22.57 [Fri Oct 06 14:59:51 BST 2017] "GET /index.html HTTP/1.1" 200 889
+0.0.22.57 [Fri Oct 06 14:59:56 BST 2017] "GET /css/style.css HTTP/1.1" 200 30
+0.0.22.57 [Fri Oct 06 14:59:56 BST 2017] "GET /favicon.ico HTTP/1.1" 200 1150

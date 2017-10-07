@@ -1,6 +1,5 @@
 import java.io.*;
 import java.net.*;
-import java.util.*;
 
 class WebServer {
 
@@ -8,38 +7,34 @@ class WebServer {
     private static final int PORT_MAX = 60000;
     private static final int DEFAULT_PORT = 45689;
 
-
-
-    private static final String LOG_FILE = "logs/AccessLog.log";
+    private static final String DEFAULT_LOG_FILE = "logs/AccessLog.log";
+    private static final String EXCEPTION_LOG_FILE = "logs/exceptionLog.log";
 
     public static void main(String argv[]) {
-        PrintWriter writer = null;
+        PrintWriter writerAccessLog = null;
+        PrintWriter writerExceptionLog = null;
         int portNumber = DEFAULT_PORT;
-        String fileName = LOG_FILE;
-
-        String command = "";
+        String fileName = DEFAULT_LOG_FILE;
 
         if (argv.length > 0) {
-            command = argv[0];
+            try {
+                int input = Integer.parseInt(argv[0]);
+                if (input >= PORT_MIN && input <= PORT_MAX) {
+                    portNumber = input;
+                }
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
             if (argv.length > 1) {
-                try {
-                    int input = Integer.parseInt(argv[1]);
-                    if (input >= PORT_MIN && input <= PORT_MAX) {
-                        portNumber = input;
-                    }
-                } catch (IllegalArgumentException e) {
-                    e.printStackTrace();
-                }
-                if (argv.length > 2) {
-                    fileName = argv[2];
-                }
+                fileName = argv[1];
             }
         }
 
         try {
-            writer = new PrintWriter(new FileWriter(fileName,true));
+            writerAccessLog = new PrintWriter(new FileWriter(fileName,true));
+            writerExceptionLog = new PrintWriter(new FileWriter(EXCEPTION_LOG_FILE, true));
         } catch (IOException e) {
-            System.out.println("Connecting writer to log file has failed - possibly wrong path given");
+            System.out.println("Connecting writer(s) to log file(s) has failed - possibly wrong path given");
             e.printStackTrace();
         }
 
@@ -50,21 +45,19 @@ class WebServer {
             while(running){
                 try {
                     Socket socket = listenSocket.accept();
-                    HttpResponse response = new HttpResponse(writer, socket);
+                    HttpResponse response = new HttpResponse(writerAccessLog, writerExceptionLog, socket);
                     response.start();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            writer.close();
+            writerAccessLog.close();
+            writerExceptionLog.close();
         } catch (IOException e) {
             System.out.println("Server socket creation has failed");
             e.printStackTrace();
         }
     }
-
-
-
 }
 
 

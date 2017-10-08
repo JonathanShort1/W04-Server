@@ -17,3 +17,4 @@ File requested not found! File name: f.html
 File requested not found! File name: f.html
 File requested not found! File name: f.html
 File requested not found! File name: f.html
+Null pointer at request message! - likely a problem with a missing file

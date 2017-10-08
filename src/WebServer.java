@@ -11,10 +11,8 @@ class WebServer {
     private static final String EXCEPTION_LOG_FILE = "logs/exceptionLog.log";
 
     public static void main(String argv[]) {
-        PrintWriter writerAccessLog = null;
-        PrintWriter writerExceptionLog = null;
         int portNumber = DEFAULT_PORT;
-        String fileName = DEFAULT_LOG_FILE;
+        String accessLogFileName = DEFAULT_LOG_FILE;
 
         if (argv.length > 0) {
             try {
@@ -26,16 +24,10 @@ class WebServer {
                 e.printStackTrace();
             }
             if (argv.length > 1) {
-                fileName = argv[1];
+                if (new File(argv[1]).exists()) {
+                    accessLogFileName = argv[1];
+                }
             }
-        }
-
-        try {
-            writerAccessLog = new PrintWriter(new FileWriter(fileName,true));
-            writerExceptionLog = new PrintWriter(new FileWriter(EXCEPTION_LOG_FILE, true));
-        } catch (IOException e) {
-            System.out.println("Connecting writer(s) to log file(s) has failed - possibly wrong path given");
-            e.printStackTrace();
         }
 
         ServerSocket listenSocket;
@@ -45,14 +37,13 @@ class WebServer {
             while(running){
                 try {
                     Socket socket = listenSocket.accept();
-                    HttpResponse response = new HttpResponse(writerAccessLog, writerExceptionLog, socket);
+                    HttpResponse response = new HttpResponse(accessLogFileName, EXCEPTION_LOG_FILE, socket);
                     response.start();
                 } catch (IOException e) {
+                    System.out.println("Response creation has failed - wrong file names given for log files");
                     e.printStackTrace();
                 }
             }
-            writerAccessLog.close();
-            writerExceptionLog.close();
         } catch (IOException e) {
             System.out.println("Server socket creation has failed");
             e.printStackTrace();

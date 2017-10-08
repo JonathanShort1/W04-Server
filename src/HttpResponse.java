@@ -23,10 +23,10 @@ public class HttpResponse implements Runnable{
     private byte[] fileInBytes;
     private String contentType;
 
-    HttpResponse(PrintWriter writerAccessLog, PrintWriter writerExcetionLog, Socket socket) {
+    HttpResponse(String accessLog, String excetionLog, Socket socket) throws IOException {
         this.connectionSocket = socket;
-        this.writerAccessLog = writerAccessLog;
-        this.writerExceptionLog = writerExcetionLog;
+        this.writerAccessLog = new PrintWriter(new FileWriter(accessLog, true));
+        this.writerExceptionLog = new PrintWriter(new FileWriter(excetionLog, true));
     }
 
     public void start() {
@@ -52,30 +52,36 @@ public class HttpResponse implements Runnable{
             StringTokenizer tokenisedLine;
             try {
                 requestMessageLine = inFromClient.readLine();
-                tokenisedLine = new StringTokenizer(requestMessageLine);
+                if (requestMessageLine != null) {
+                    tokenisedLine = new StringTokenizer(requestMessageLine);
 
-                if (tokenisedLine.hasMoreTokens() && tokenisedLine.nextToken().equals("GET")) {
-                    fileName = tokenisedLine.nextToken();
-                    if (fileName.startsWith("/") && fileName.length() > 1) {
-                        fileName = fileName.substring(1);
-                    } else if (fileName.equals("/")) {
-                        fileName = HOME_PAGE;
-                    }
-
-                    try {
-                        file = new File(fileName);
-                        if (file.exists()) {
-                            this.buildResponse(file, "200", "Ok");
-                            this.respond(outToClient);
-                        } else {
-                            file = new File(ERROR_404);
-                            this.buildResponse(file, "404", "Not Found");
-                            this.respond(outToClient);
+                    if (tokenisedLine.hasMoreTokens() && tokenisedLine.nextToken().equals("GET")) {
+                        fileName = tokenisedLine.nextToken();
+                        if (fileName.startsWith("/") && fileName.length() > 1) {
+                            fileName = fileName.substring(1);
+                        } else if (fileName.equals("/")) {
+                            fileName = HOME_PAGE;
                         }
-                    } catch (FileNotFoundException e) {
-                        writerExceptionLog.println("File requested not found!" + " File name: " + fileName);
-                        writerExceptionLog.flush();
-                        e.printStackTrace();
+
+                        try {
+                            file = new File(fileName);
+                            if (file.exists()) {
+                                this.buildResponse(file, "200", "Ok");
+                                this.respond(outToClient);
+                            } else {
+                                file = new File(ERROR_404);
+                                this.buildResponse(file, "404", "Not Found");
+                                this.respond(outToClient);
+                            }
+                        } catch (FileNotFoundException e) {
+                            writerExceptionLog.println("File requested not found!" + " File name: " + fileName);
+                            writerExceptionLog.flush();
+                            e.printStackTrace();
+                        }
+                    } else {
+                        file = new File(ERROR_400);
+                        this.buildResponse(file, "400", "Bad Request");
+                        this.respond(outToClient);
                     }
                 } else {
                     file = new File(ERROR_400);
@@ -88,6 +94,7 @@ public class HttpResponse implements Runnable{
                 writerExceptionLog.flush();
                 e.printStackTrace();
             }
+
             logAccess(requestMessageLine);
             this.connectionSocket.close();
         } catch (IOException e) {
@@ -95,6 +102,8 @@ public class HttpResponse implements Runnable{
             writerExceptionLog.flush();
             e.printStackTrace();
         }
+        writerAccessLog.close();
+        writerExceptionLog.close();
     }
 
     private void buildResponse(File file, String status, String reasonPhrase) throws IOException {

@@ -7,9 +7,9 @@ class WebServer {
     private static final int PORT_MAX = 60000;
     private static final int DEFAULT_PORT = 45689;
 
-    private static final String DEFAULT_LOG_FILE = "logs/AccessLog.log";
-    private static final String EXCEPTION_LOG_FILE = "logs/exceptionLog.log";
-    private static final String METADATA_LOG_FILE = "logs/metaDataLog.log";
+    private static final String DEFAULT_LOG_FILE = "Server/logs/AccessLog.log";
+    private static final String EXCEPTION_LOG_FILE = "Server/logs/exceptionLog.log";
+    private static final String METADATA_LOG_FILE = "Server/logs/metaDataLog.log";
 
     public static void main(String argv[]) {
         int portNumber = DEFAULT_PORT;

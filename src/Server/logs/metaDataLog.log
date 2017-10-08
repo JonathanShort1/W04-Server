@@ -1,0 +1,142 @@
+Host address: 127.0.0.1 port: 39428, 
+Local address: /127.0.0.1 local port: 45689
+
+Host address: 127.0.0.1 port: 39430, 
+Local address: /127.0.0.1 local port: 45689
+
+Host address: 127.0.0.1 port: 39432, 
+Local address: /127.0.0.1 local port: 45689
+
+Host address: 127.0.0.1 port: 39478, Local address: /127.0.0.1 local port: 45689
+
+Host address: 127.0.0.1 port: 39480, Local address: /127.0.0.1 local port: 45689
+
+Host address: 138.251.29.234 port: 44796, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44798, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44820, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44822, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44824, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44826, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44828, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44830, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44832, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44834, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44836, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44838, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44852, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44854, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44856, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44858, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44860, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44862, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44864, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44866, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44868, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44870, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44872, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44874, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234 port: 44878, Local address: /138.251.206.220 local port: 45689
+
+Host address: 138.251.29.234, Port: 44884; Local address: /138.251.206.220, Local port: 45689"St Andrews"
+Host address: 138.251.29.234, Port: 44886; Local address: /138.251.206.220, Local port: 45689"St Andrews"
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 44892; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 44894; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 44922; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 44924; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 44926; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 44928; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 44932; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 44934; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 45052; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 45054; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 45056; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 45058; Local address: /138.251.206.220, Local port: 45689
+Location: location Failure - incorrect usage of API, probably called from 127.0.0.1; Host address: 127.0.0.1, Port: 39774; Local address: /127.0.0.1, Local port: 45689
+Location: location Failure - incorrect usage of API, probably called from 127.0.0.1; Host address: 127.0.0.1, Port: 39780; Local address: /127.0.0.1, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 45086; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 45088; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 45090; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 45092; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 45148; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 45150; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 45152; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 45154; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 45156; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 45158; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 45160; Local address: /138.251.206.220, Local port: 45689
+Location: "St Andrews"; Host address: 138.251.29.234, Port: 45162; Local address: /138.251.206.220, Local port: 45689
+Host address: 138.251.29.234, Port: 45166; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Host address: 138.251.29.234, Port: 45168; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Host address: 138.251.29.234, Port: 45174; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Host address: 138.251.29.234, Port: 45176; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Host address: 138.251.29.234, Port: 45178; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 15:20:05 BST 2017Host address: 138.251.29.234, Port: 45194; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 15:20:05 BST 2017Host address: 138.251.29.234, Port: 45196; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 15:20:20 BST 2017Host address: 138.251.29.234, Port: 45200; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 20:08:07 BST 2017Host address: 138.251.29.175, Port: 44710; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 20:08:07 BST 2017Host address: 138.251.29.175, Port: 44708; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 20:08:08 BST 2017Host address: 138.251.29.175, Port: 44714; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 20:08:08 BST 2017Host address: 138.251.29.175, Port: 44716; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 20:08:15 BST 2017Host address: 138.251.29.175, Port: 44718; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 20:08:15 BST 2017Host address: 138.251.29.175, Port: 44720; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 20:08:15 BST 2017Host address: 138.251.29.175, Port: 44722; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 20:08:15 BST 2017Host address: 138.251.29.175, Port: 44724; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 20:08:17 BST 2017Host address: 138.251.29.175, Port: 44726; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 20:08:23 BST 2017Host address: 138.251.29.175, Port: 44732; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 20:08:23 BST 2017Host address: 138.251.29.175, Port: 44728; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 20:08:23 BST 2017Host address: 138.251.29.175, Port: 44730; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 20:08:30 BST 2017Host address: 138.251.29.175, Port: 44734; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 20:08:30 BST 2017Host address: 138.251.29.175, Port: 44736; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 20:08:41 BST 2017Host address: 138.251.29.175, Port: 44738; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 20:08:44 BST 2017Host address: 138.251.29.175, Port: 44740; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 20:08:51 BST 2017Host address: 138.251.29.175, Port: 44744; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 20:08:51 BST 2017Host address: 138.251.29.175, Port: 44746; Local address: /138.251.206.220, Local port: 45689; Location: "St Andrews"
+Date: Sun Oct 08 20:09:16 BST 2017Host address: 127.0.0.1, Port: 54730; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:09:17 BST 2017Host address: 127.0.0.1, Port: 54734; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:11:49 BST 2017Host address: 127.0.0.1, Port: 54764; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:11:49 BST 2017Host address: 127.0.0.1, Port: 54762; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:13:29 BST 2017Host address: 127.0.0.1, Port: 54782; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:13:29 BST 2017Host address: 127.0.0.1, Port: 54786; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:13:35 BST 2017Host address: 127.0.0.1, Port: 54788; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:13:35 BST 2017Host address: 127.0.0.1, Port: 54792; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:13:57 BST 2017Host address: 127.0.0.1, Port: 54794; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:13:57 BST 2017Host address: 127.0.0.1, Port: 54798; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:13:59 BST 2017Host address: 127.0.0.1, Port: 54800; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:13:59 BST 2017Host address: 127.0.0.1, Port: 54802; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:14:00 BST 2017Host address: 127.0.0.1, Port: 54804; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:14:00 BST 2017Host address: 127.0.0.1, Port: 54806; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:14:01 BST 2017Host address: 127.0.0.1, Port: 54808; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:14:01 BST 2017Host address: 127.0.0.1, Port: 54810; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:14:20 BST 2017Host address: 127.0.0.1, Port: 54820; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:14:20 BST 2017Host address: 127.0.0.1, Port: 54822; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:16:21 BST 2017Host address: 127.0.0.1, Port: 54830; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:16:21 BST 2017Host address: 127.0.0.1, Port: 54832; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:16:21 BST 2017Host address: 127.0.0.1, Port: 54834; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:22:15 BST 2017Host address: 127.0.0.1, Port: 54962; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:22:15 BST 2017Host address: 127.0.0.1, Port: 54964; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:22:15 BST 2017Host address: 127.0.0.1, Port: 54966; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1
+Date: Sun Oct 08 20:22:15 BST 2017Host address: 127.0.0.1, Port: 54968; Local address: /127.0.0.1, Local port: 45689; Location: location Failure - incorrect usage of API, probably called from 127.0.0.1

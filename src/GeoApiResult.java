@@ -30,7 +30,7 @@ public class GeoApiResult {
      * @return the location of the host.
      */
 
-    public String getLocation() {
+    public String findLocation() {
         String location = "";
         String input;
         try {
@@ -39,10 +39,12 @@ public class GeoApiResult {
             connection.connect();
             this.reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             input = reader.readLine();
-            System.out.println(input);
             String result[] = input.split(",");
-            location = result[5];
-            System.out.println(location);
+            if (result.length > 3) {
+                location = result[5];
+            } else {
+                location = "Using loopback address 127.0.0.1 - you know where you are!";
+            }
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();

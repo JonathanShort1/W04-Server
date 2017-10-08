@@ -14,6 +14,7 @@ public class HttpResponse implements Runnable{
     private Socket connectionSocket;
     private PrintWriter writerAccessLog;
     private PrintWriter writerExceptionLog;
+    private PrintWriter writerMetaData;
 
     private String status;
     private String reasonPhrase;
@@ -23,10 +24,12 @@ public class HttpResponse implements Runnable{
     private byte[] fileInBytes;
     private String contentType;
 
-    HttpResponse(String accessLog, String excetionLog, Socket socket) throws IOException {
+    HttpResponse(String accessLog, String exceptionLog, String metaData, Socket socket) throws IOException {
         this.connectionSocket = socket;
         this.writerAccessLog = new PrintWriter(new FileWriter(accessLog, true));
-        this.writerExceptionLog = new PrintWriter(new FileWriter(excetionLog, true));
+        this.writerExceptionLog = new PrintWriter(new FileWriter(exceptionLog, true));
+        this.writerMetaData = new PrintWriter(new FileWriter(metaData, true));
+        this.date = new Date().toString();
     }
 
     public void start() {
@@ -41,11 +44,9 @@ public class HttpResponse implements Runnable{
         String requestMessageLine;
         String fileName;
         DataOutputStream outToClient;
+        File file;
 
         try {
-            this.date = new Date().toString();
-            File file;
-
             BufferedReader inFromClient = new BufferedReader(new InputStreamReader(this.connectionSocket.getInputStream()));
             outToClient = new DataOutputStream(this.connectionSocket.getOutputStream());
 
@@ -54,15 +55,14 @@ public class HttpResponse implements Runnable{
                 requestMessageLine = inFromClient.readLine();
                 if (requestMessageLine != null) {
                     tokenisedLine = new StringTokenizer(requestMessageLine);
-
                     if (tokenisedLine.hasMoreTokens() && tokenisedLine.nextToken().equals("GET")) {
                         fileName = tokenisedLine.nextToken();
                         if (fileName.startsWith("/") && fileName.length() > 1) {
                             fileName = fileName.substring(1);
+                            fileName = fileName.split("\\?")[0];
                         } else if (fileName.equals("/")) {
                             fileName = HOME_PAGE;
                         }
-
                         try {
                             file = new File(fileName);
                             if (file.exists()) {
@@ -74,8 +74,8 @@ public class HttpResponse implements Runnable{
                                 this.respond(outToClient);
                             }
                         } catch (FileNotFoundException e) {
-                            writerExceptionLog.println("File requested not found!" + " File name: " + fileName);
-                            writerExceptionLog.flush();
+                            this.writerExceptionLog.println("File requested not found!" + " File name: " + fileName);
+                            this.writerExceptionLog.flush();
                             e.printStackTrace();
                         }
                     } else {
@@ -90,20 +90,21 @@ public class HttpResponse implements Runnable{
                 }
             } catch(NullPointerException e) {
                 requestMessageLine = "";
-                writerExceptionLog.println("Null pointer at request message! - likely a problem with a missing file");
-                writerExceptionLog.flush();
+                this.writerExceptionLog.println("Null pointer at request message! - likely a problem with a missing file");
+                this.writerExceptionLog.flush();
                 e.printStackTrace();
             }
-
             logAccess(requestMessageLine);
+            logMetaData();
             this.connectionSocket.close();
         } catch (IOException e) {
-            writerExceptionLog.println("Failed to create Input and output readers");
-            writerExceptionLog.flush();
+            this.writerExceptionLog.println("Failed to create Input and output readers from socket streams OR not found ERROR_400 file");
+            this.writerExceptionLog.flush();
             e.printStackTrace();
         }
-        writerAccessLog.close();
-        writerExceptionLog.close();
+        this.writerAccessLog.close();
+        this.writerExceptionLog.close();
+        this.writerMetaData.close();
     }
 
     private void buildResponse(File file, String status, String reasonPhrase) throws IOException {
@@ -122,6 +123,10 @@ public class HttpResponse implements Runnable{
         this.writerAccessLog.flush();
     }
 
+    public void logMetaData() {
+        this.writerMetaData.println("Location: " + getGeoLocation() + "; " + tcpConnection());
+    }
+
     public void respond(DataOutputStream outToClient) throws IOException {
         outToClient.writeBytes(HTTP_V + " " + this.status + " " + this.reasonPhrase + "\r\n");
         outToClient.writeBytes(this.date + "\r\n");
@@ -131,9 +136,24 @@ public class HttpResponse implements Runnable{
         }
         outToClient.writeBytes("\r\n");
         outToClient.write(this.fileInBytes, 0, this.numOfBytes);
-        outToClient.writeBytes("Host address: " + this.connectionSocket.getInetAddress().getHostAddress() + " port: " + this.connectionSocket.getPort() +
-                "\nLocal address: " + this.connectionSocket.getLocalAddress() + " local port: " + this.connectionSocket.getLocalPort() + "\n");
+        outToClient.writeBytes(tcpConnection());
+    }
 
+    public String tcpConnection(){
+        String tcpConnection;
+        tcpConnection = "Host address: " + this.connectionSocket.getInetAddress().getHostAddress() + ","
+                + " Port: " + this.connectionSocket.getPort() + ";"
+                + " Local address: " + this.connectionSocket.getLocalAddress() + ","
+                + " Local port: " + this.connectionSocket.getLocalPort();
+        return tcpConnection;
+    }
+
+    public String getGeoLocation() {
+        String location;
+        GeoApiResult geoApiResult = new GeoApiResult(this.connectionSocket.getInetAddress().getHostAddress());
+        location = geoApiResult.getLocation();
+        System.out.println(location);
+        return location;
     }
 
     public void setStatus(String status) {

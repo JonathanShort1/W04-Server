@@ -18,3 +18,7 @@ File requested not found! File name: f.html
 File requested not found! File name: f.html
 File requested not found! File name: f.html
 Null pointer at request message! - likely a problem with a missing file
+Failed to create Input and output readers
+Failed to create Input and output readers
+Failed to create Input and output readers
+Failed to create Input and output readers from socket streams OR not found ERROR_400 file

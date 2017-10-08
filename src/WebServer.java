@@ -9,6 +9,7 @@ class WebServer {
 
     private static final String DEFAULT_LOG_FILE = "logs/AccessLog.log";
     private static final String EXCEPTION_LOG_FILE = "logs/exceptionLog.log";
+    private static final String METADATA_LOG_FILE = "logs/metaDataLog.log";
 
     public static void main(String argv[]) {
         int portNumber = DEFAULT_PORT;
@@ -37,7 +38,7 @@ class WebServer {
             while(running){
                 try {
                     Socket socket = listenSocket.accept();
-                    HttpResponse response = new HttpResponse(accessLogFileName, EXCEPTION_LOG_FILE, socket);
+                    HttpResponse response = new HttpResponse(accessLogFileName, EXCEPTION_LOG_FILE, METADATA_LOG_FILE, socket);
                     response.start();
                 } catch (IOException e) {
                     System.out.println("Response creation has failed - wrong file names given for log files");

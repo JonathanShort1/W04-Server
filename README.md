@@ -9,8 +9,9 @@ How to run:
     * You cannot give a logfile without also giving a portnumber and likewise with the server folder
  * To Stop the server use: Java WebServer stop
  * To run the server in the foreground use: Java WebServer run <portnumber> <logfile> <serverfolder>
-    - make sure nothing else is running on this port first
-  
+    * make sure nothing else is running on this port first
+    * make sure the running.txt file exists or the server will just stop. 
+   
   * The Default port number is 45689.
   * The Default server folder is src/Server/.
   * The location of the Default log files is src/Server/logs/.

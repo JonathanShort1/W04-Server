@@ -14,4 +14,5 @@ How to run:
   * The Default port number is 45689.
   * The Default server folder is src/Server/.
   * The location of the Default log files is src/Server/logs/.
+  * The path to the server source file: ~/Documents/CS2003/W04/W04-Server/src.
   

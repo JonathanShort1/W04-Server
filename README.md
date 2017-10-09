@@ -5,7 +5,7 @@ How to run:
  * If the server is running the file "running.txt" will exist in the source folder.
  * To compile the Java file use: javac WebServer.java
  * To Start the server use: Java WebServer start <portnumber> <logfile> <serverfolder> 
-  *  the three parameters after "start" are optional but have to come in that order 
+    *  the three parameters after "start" are optional but have to come in that order 
     * You cannot give a logfile without also giving a portnumber and likewise with the server folder
  * To Stop the server use: Java WebServer stop
  * To run the server in the foreground use: Java WebServer run <portnumber> <logfile> <serverfolder>

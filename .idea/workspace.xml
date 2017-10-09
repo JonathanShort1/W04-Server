@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7da7077-4b7c-4863-8e1f-bf458a5d1aa3" name="Default" comment="Start and stop being to work and relative paths sorted.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WebServer.class" afterPath="$PROJECT_DIR$/src/WebServer.class" />
+    <list default="true" id="f7da7077-4b7c-4863-8e1f-bf458a5d1aa3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Server/logs/AccessLog.log" afterPath="$PROJECT_DIR$/src/Server/logs/AccessLog.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Server/logs/exceptionLog.log" afterPath="$PROJECT_DIR$/src/Server/logs/exceptionLog.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Server/logs/metaDataLog.log" afterPath="$PROJECT_DIR$/src/Server/logs/metaDataLog.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WebServer.java" afterPath="$PROJECT_DIR$/src/WebServer.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +19,8 @@
           <file leaf-file-name="WebServer.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/WebServer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="35">
-                  <caret line="59" column="116" lean-forward="true" selection-start-line="59" selection-start-column="116" selection-end-line="59" selection-end-column="116" />
+                <state relative-caret-position="44">
+                  <caret line="97" column="90" lean-forward="false" selection-start-line="97" selection-start-column="90" selection-end-line="97" selection-end-column="90" />
                   <folding>
                     <element signature="method#main#0;class#WebServer#0" expanded="false" />
                   </folding>
@@ -759,7 +755,7 @@
       <workItem from="1507539721804" duration="3415000" />
       <workItem from="1507553849097" duration="5677000" />
       <workItem from="1507572257157" duration="21000" />
-      <workItem from="1507572298218" duration="4763000" />
+      <workItem from="1507572298218" duration="4806000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1507235095113</created>
@@ -887,11 +883,18 @@
       <option name="project" value="LOCAL" />
       <updated>1507559315547</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Start and stop is working">
+      <created>1507577824968</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1507577824968</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61450000" />
+    <option name="totallyTimeSpent" value="61493000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1020" extended-state="6" />
@@ -950,7 +953,8 @@
     <MESSAGE value="Added image and gif to index page" />
     <MESSAGE value="Start and stop being to work" />
     <MESSAGE value="Start and stop being to work and relative paths sorted." />
-    <option name="LAST_COMMIT_MESSAGE" value="Start and stop being to work and relative paths sorted." />
+    <MESSAGE value="Start and stop is working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start and stop is working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1444,8 +1448,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WebServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="59" column="116" lean-forward="true" selection-start-line="59" selection-start-column="116" selection-end-line="59" selection-end-column="116" />
+        <state relative-caret-position="44">
+          <caret line="97" column="90" lean-forward="false" selection-start-line="97" selection-start-column="90" selection-end-line="97" selection-end-column="90" />
           <folding>
             <element signature="method#main#0;class#WebServer#0" expanded="false" />
           </folding>

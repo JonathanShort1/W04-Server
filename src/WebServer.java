@@ -96,11 +96,9 @@ class WebServer {
      */
 
     public static void run(int portNumber, String accessLogFileName,String documentRoot) {
-        PrintWriter writer = null;
         ServerSocket listenSocket;
         try {
             File runFile = new File(RUN_FILE);
-            writer = new PrintWriter(RUN_FILE);
             listenSocket = new ServerSocket(portNumber);
             while(runFile.exists()){
                 try {
@@ -113,7 +111,6 @@ class WebServer {
                 }
             }
         } catch (IOException e) {
-            writer.println("Server socket creation has failed");
             System.out.println("Server socket creation has failed");
             e.printStackTrace();
         }

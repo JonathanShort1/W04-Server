@@ -101,17 +101,15 @@ public class HttpResponse implements Runnable{
                                 this.respond(outToClient);
                             }
                         } catch (FileNotFoundException e) {
-                            logException("File requested not found!" + " File name: " + fileName);
+                            logException("File requested not found! File name: " + fileName);
                             e.printStackTrace();
                         }
                     } else {
-                        this.request = "GET";
                         file = new File(ERROR_400);
                         this.buildResponse(file, "400", "Bad Request");
                         this.respond(outToClient);
                     }
                 } else {
-                    this.request = "GET";
                     file = new File(ERROR_400);
                     this.buildResponse(file, "400", "Bad Request");
                     this.respond(outToClient);

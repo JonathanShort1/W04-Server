@@ -15,27 +15,63 @@ class WebServer {
     public static void main(String argv[]) {
         int portNumber = DEFAULT_PORT;
         String accessLogFileName = DEFAULT_LOG_FILE;
+        String command = "start";
 
         if (argv.length > 0) {
-            try {
-                int input = Integer.parseInt(argv[0]);
-                if (input >= PORT_MIN && input <= PORT_MAX) {
-                    portNumber = input;
-                }
-            } catch (IllegalArgumentException e) {
-                e.printStackTrace();
-            }
+            command = argv[0];
             if (argv.length > 1) {
-                accessLogFileName = argv[1];
-                System.out.println(accessLogFileName);
+                try {
+                    int input = Integer.parseInt(argv[1]);
+                    if (input >= PORT_MIN && input <= PORT_MAX) {
+                        portNumber = input;
+                    }
+                } catch (IllegalArgumentException e) {
+                    e.printStackTrace();
+                }
+                if (argv.length > 2) {
+                    accessLogFileName = argv[2];
+                    System.out.println(accessLogFileName);
+                }
             }
         }
 
+        PrintWriter writer = null;
+        File runFile = null;
+        switch (command) {
+            case "start" :
+                try {
+                    System.out.println("starting server");
+                    Runtime.getRuntime().exec("java WebServer run &");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "stop" :
+                System.out.println("Stopping server");
+                if ((runFile = new File("running.txt")).exists()) {
+                    runFile.delete();
+                }
+                break;
+            case "run" :
+                try {
+                    writer = new PrintWriter("running.txt");
+                    runFile = new File("running.txt");
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                run(portNumber, accessLogFileName, runFile);
+                break;
+            default:
+                System.out.println("please enter start,stop or forward");
+                System.exit(0);
+        }
+    }
+
+    public static void run(int portNumber, String accessLogFileName, File runFile) {
         ServerSocket listenSocket;
         try {
             listenSocket = new ServerSocket(portNumber);
-            boolean running = true;
-            while(running){
+            while(runFile.exists()){
                 try {
                     Socket socket = listenSocket.accept();
                     HttpResponse response = new HttpResponse(DOCUMENT_ROOT, accessLogFileName, EXCEPTION_LOG_FILE, METADATA_LOG_FILE, socket);

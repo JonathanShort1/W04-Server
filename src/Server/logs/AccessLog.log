@@ -2215,3 +2215,64 @@
 127.0.0.1 [Mon Oct 09 15:22:48 BST 2017] "GET /css/style.css HTTP/1.1" 200 58
 127.0.0.1 [Mon Oct 09 15:22:50 BST 2017] "GET /images/tree.jpg HTTP/1.1" 200 139255
 127.0.0.1 [Mon Oct 09 15:22:50 BST 2017] "GET /images/giphy-downsized.gif HTTP/1.1" 200 1898421
+127.0.0.1 [Mon Oct 09 19:28:04 BST 2017] "GET / HTTP/1.1" 200 1999
+127.0.0.1 [Mon Oct 09 19:28:04 BST 2017] "GET /css/style.css HTTP/1.1" 200 58
+127.0.0.1 [Mon Oct 09 19:28:04 BST 2017] "GET /images/giphy-downsized.gif HTTP/1.1" 200 1898421
+127.0.0.1 [Mon Oct 09 19:28:04 BST 2017] "GET /images/tree.jpg HTTP/1.1" 200 139255
+127.0.0.1 [Mon Oct 09 19:28:04 BST 2017] "GET /favicon.ico HTTP/1.1" 404 444
+127.0.0.1 [Mon Oct 09 19:28:33 BST 2017] "GET /logs/AccessLog.log HTTP/1.1" 200 189422
+127.0.0.1 [Mon Oct 09 19:36:35 BST 2017] "GET / HTTP/1.1" 200 1999
+127.0.0.1 [Mon Oct 09 19:36:36 BST 2017] "GET /images/tree.jpg HTTP/1.1" 200 139255
+127.0.0.1 [Mon Oct 09 19:36:36 BST 2017] "GET /css/style.css HTTP/1.1" 200 58
+127.0.0.1 [Mon Oct 09 19:36:36 BST 2017] "GET /images/giphy-downsized.gif HTTP/1.1" 200 1898421
+127.0.0.1 [Mon Oct 09 19:36:36 BST 2017] "GET /favicon.ico HTTP/1.1" 404 444
+127.0.0.1 [Mon Oct 09 19:41:13 BST 2017] "GET / HTTP/1.1" 200 1999
+127.0.0.1 [Mon Oct 09 19:41:13 BST 2017] "GET /css/style.css HTTP/1.1" 200 58
+127.0.0.1 [Mon Oct 09 19:41:13 BST 2017] "GET /images/tree.jpg HTTP/1.1" 200 139255
+127.0.0.1 [Mon Oct 09 19:41:13 BST 2017] "GET /images/giphy-downsized.gif HTTP/1.1" 200 1898421
+127.0.0.1 [Mon Oct 09 19:41:29 BST 2017] "GET /jfjfj HTTP/1.1" 404 444
+127.0.0.1 [Mon Oct 09 19:41:29 BST 2017] "GET /index.html HTTP/1.1" 200 1999
+127.0.0.1 [Mon Oct 09 19:41:29 BST 2017] "GET /css/style.css HTTP/1.1" 200 58
+127.0.0.1 [Mon Oct 09 19:41:31 BST 2017] "GET /images/tree.jpg HTTP/1.1" 200 139255
+127.0.0.1 [Mon Oct 09 19:41:31 BST 2017] "GET /images/giphy-downsized.gif HTTP/1.1" 200 1898421
+138.251.29.209 [Mon Oct 09 19:42:05 BST 2017] "GET / HTTP/1.1" 200 1999
+138.251.29.209 [Mon Oct 09 19:42:05 BST 2017] "GET /css/style.css HTTP/1.1" 200 58
+138.251.29.209 [Mon Oct 09 19:42:05 BST 2017] "GET /images/tree.jpg HTTP/1.1" 200 139255
+138.251.29.209 [Mon Oct 09 19:42:05 BST 2017] "GET /images/giphy-downsized.gif HTTP/1.1" 200 1898421
+138.251.29.209 [Mon Oct 09 19:42:09 BST 2017] "GET / HTTP/1.1" 200 1999
+138.251.29.209 [Mon Oct 09 19:42:09 BST 2017] "GET /css/style.css HTTP/1.1" 200 58
+138.251.29.209 [Mon Oct 09 19:42:09 BST 2017] "GET /images/tree.jpg HTTP/1.1" 200 139255
+138.251.29.209 [Mon Oct 09 19:42:09 BST 2017] "GET /images/giphy-downsized.gif HTTP/1.1" 200 1898421
+138.251.29.209 [Mon Oct 09 19:42:09 BST 2017] "GET /favicon.ico HTTP/1.1" 404 444
+138.251.29.209 [Mon Oct 09 19:42:52 BST 2017] "GET / HTTP/1.1" 200 1999
+138.251.29.209 [Mon Oct 09 19:42:52 BST 2017] "GET /css/style.css HTTP/1.1" 200 58
+138.251.29.209 [Mon Oct 09 19:42:52 BST 2017] "GET /images/tree.jpg HTTP/1.1" 200 139255
+138.251.29.209 [Mon Oct 09 19:42:52 BST 2017] "GET /images/giphy-downsized.gif HTTP/1.1" 200 1898421
+138.251.29.209 [Mon Oct 09 19:42:56 BST 2017] "GET /ifjfjf HTTP/1.1" 404 444
+138.251.29.209 [Mon Oct 09 19:42:57 BST 2017] "GET /index.html HTTP/1.1" 200 1999
+138.251.29.209 [Mon Oct 09 19:42:57 BST 2017] "GET /css/style.css HTTP/1.1" 200 58
+138.251.29.209 [Mon Oct 09 19:42:57 BST 2017] "GET /images/tree.jpg HTTP/1.1" 200 139255
+138.251.29.209 [Mon Oct 09 19:42:57 BST 2017] "GET /images/giphy-downsized.gif HTTP/1.1" 200 1898421
+138.251.29.209 [Mon Oct 09 19:42:58 BST 2017] "GET /logs/AccessLog.log HTTP/1.1" 200 192191
+138.251.29.209 [Mon Oct 09 19:43:00 BST 2017] "GET /logs/exceptionLog.log HTTP/1.1" 200 12336
+138.251.29.209 [Mon Oct 09 19:43:02 BST 2017] "GET /logs/metaDataLog.log HTTP/1.1" 200 177518
+138.251.29.209 [Mon Oct 09 19:43:28 BST 2017] " �  �z��cL����vؽ|ߨ�nN]+}�՟�t��  zz�+�/�,�0̨̩�� � � / 5 " 400 384
+138.251.29.209 [Mon Oct 09 20:02:17 BST 2017] " �  �7�\sc�-���R�3a$I�z��WX�  �+�/̨̩�,�0�" 400 384
+138.251.29.209 [Mon Oct 09 20:02:32 BST 2017] " �  ���9Z��=]-6�\B���ז9�����pf�2�K  �+�/̨̩�,�0�" 400 384
+138.251.29.209 [Mon Oct 09 20:03:21 BST 2017] " �  �Rϛ���>�]�Hsns" 400 384
+138.251.29.209 [Mon Oct 09 20:03:50 BST 2017] " �  ��״�$�c[���yj"9�[�j""1��o�J;�]  �+�/̨̩�,�0�" 400 384
+138.251.29.209 [Mon Oct 09 20:04:19 BST 2017] " �  ��z�d=��(�" 400 384
+138.251.29.209 [Mon Oct 09 20:06:10 BST 2017] " �  ����:7��:��Ѽ��[~��7^iy�� ���r�f  �+�/̨̩�,�0�" 400 384
+138.251.29.209 [Mon Oct 09 20:06:17 BST 2017] " �  ��[v\4�tlMiZ��&w}	��-�\o@�du�R��  �+�/̨̩�,�0�" 400 384
+138.251.29.209 [Mon Oct 09 20:07:06 BST 2017] " �  �	�S�$�w�3P%���'U��kC�t�:���'  �+�/̨̩�,�0�" 400 384
+138.251.29.209 [Mon Oct 09 20:07:33 BST 2017] " �  �7��~� �ƮP>kª�$P��P׽��iD���  �+�/̨̩�,�0�" 400 384
+138.251.29.209 [Mon Oct 09 20:09:10 BST 2017] " �  ��9�F��ґ�r���>�gR���kĭ焣  �+�/̨̩�,�0�" 400 384
+138.251.29.209 [Mon Oct 09 20:09:15 BST 2017] " �  �p�@�r �o��!'8�t�" 400 384
+138.251.29.209 [Mon Oct 09 20:09:38 BST 2017] "GET /index.html HTTP/1.1" 200 1999
+138.251.29.209 [Mon Oct 09 20:09:38 BST 2017] "GET /css/style.css HTTP/1.1" 200 58
+138.251.29.209 [Mon Oct 09 20:09:38 BST 2017] "GET /images/tree.jpg HTTP/1.1" 200 139255
+138.251.29.209 [Mon Oct 09 20:09:38 BST 2017] "GET /images/giphy-downsized.gif HTTP/1.1" 200 1898421
+138.251.29.209 [Mon Oct 09 20:09:38 BST 2017] "GET /favicon.ico HTTP/1.1" 404 444
+138.251.29.209 [Mon Oct 09 20:09:48 BST 2017] "GET /logs/AccessLog.log HTTP/1.1" 200 194618
+138.251.29.209 [Mon Oct 09 20:10:11 BST 2017] "GET /logs/exceptionLog.log HTTP/1.1" 200 12336
+138.251.29.209 [Mon Oct 09 20:10:21 BST 2017] "GET /logs/metaDataLog.log HTTP/1.1" 200 180442

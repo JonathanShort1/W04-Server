@@ -40,7 +40,9 @@ class WebServer {
                 accessLogFileName = argv[2];
             }
             if (argv.length > 3) {
-                documentRoot = argv[3];
+                if (argv[3].endsWith("/")) {
+                    documentRoot = argv[3];
+                }
             }
         }
 
@@ -61,7 +63,9 @@ class WebServer {
             case "start" :
                 try {
                     System.out.println("starting server");
-                    Runtime.getRuntime().exec("java WebServer run " + portNumber + " " + accessLogFileName + documentRoot + " &");
+                    String comm = "java WebServer run " + portNumber + " " + accessLogFileName + " " + documentRoot + " &";
+                    System.out.println(comm);
+                    Runtime.getRuntime().exec(comm);
                     Runtime.getRuntime().exec("touch " + RUN_FILE);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -74,8 +78,7 @@ class WebServer {
                 }
                 break;
             case "run" :
-                runFile = new File(RUN_FILE);
-                run(portNumber, accessLogFileName, runFile, documentRoot);
+                run(portNumber, accessLogFileName, documentRoot);
                 break;
             default:
                 System.out.println("please enter start or stop");
@@ -89,13 +92,15 @@ class WebServer {
      * This loop runs while the RUN_FILE exists.
      * @param portNumber - port number for the server socket
      * @param accessLogFileName - location of access file
-     * @param runFile - the location of the run file
      * @param documentRoot - the directory holding all the html and server files.
      */
 
-    public static void run(int portNumber, String accessLogFileName, File runFile, String documentRoot) {
+    public static void run(int portNumber, String accessLogFileName,String documentRoot) {
+        PrintWriter writer = null;
         ServerSocket listenSocket;
         try {
+            File runFile = new File(RUN_FILE);
+            writer = new PrintWriter(RUN_FILE);
             listenSocket = new ServerSocket(portNumber);
             while(runFile.exists()){
                 try {
@@ -108,6 +113,7 @@ class WebServer {
                 }
             }
         } catch (IOException e) {
+            writer.println("Server socket creation has failed");
             System.out.println("Server socket creation has failed");
             e.printStackTrace();
         }

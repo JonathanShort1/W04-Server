@@ -14,6 +14,7 @@ public class HttpResponse implements Runnable{
     private static final String ERROR_400 = "Server/error400.html";
     private static final String HTTP_V = "HTTP/1.0";
 
+    private String documentRoot;
     private Thread thread;
     private Socket connectionSocket;
     private PrintWriter writerAccessLog;
@@ -28,6 +29,7 @@ public class HttpResponse implements Runnable{
     private byte[] fileInBytes;
     private String contentType;
     private String location;
+    private String request = "GET";
 
     /**
      * This constructor builds the HttpResponse.
@@ -38,12 +40,14 @@ public class HttpResponse implements Runnable{
      * @throws IOException - if wrong path names are given.
      */
 
-    HttpResponse(String accessLog, String exceptionLog, String metaData, Socket socket) throws IOException {
+    HttpResponse(String documentRoot, String accessLog, String exceptionLog, String metaData, Socket socket) throws IOException {
+        this.documentRoot = documentRoot;
         this.connectionSocket = socket;
-        this.writerAccessLog = new PrintWriter(new FileWriter(accessLog, true));
+        this.writerAccessLog = new PrintWriter(new FileWriter(new File(documentRoot,accessLog), true));
         this.writerExceptionLog = new PrintWriter(new FileWriter(exceptionLog, true));
         this.writerMetaData = new PrintWriter(new FileWriter(metaData, true));
         this.date = new Date().toString();
+
     }
 
     /**
@@ -62,18 +66,22 @@ public class HttpResponse implements Runnable{
         String requestMessageLine;
         String fileName;
         DataOutputStream outToClient;
+        BufferedReader inFromClient;
         File file;
+        StringTokenizer tokenisedLine;
 
         try {
-            BufferedReader inFromClient = new BufferedReader(new InputStreamReader(this.connectionSocket.getInputStream()));
+            inFromClient = new BufferedReader(new InputStreamReader(this.connectionSocket.getInputStream()));
             outToClient = new DataOutputStream(this.connectionSocket.getOutputStream());
-
-            StringTokenizer tokenisedLine;
             try {
                 requestMessageLine = inFromClient.readLine();
                 if (requestMessageLine != null) {
                     tokenisedLine = new StringTokenizer(requestMessageLine);
-                    if (tokenisedLine.hasMoreTokens() && tokenisedLine.nextToken().equals("GET")) {
+                    String request = tokenisedLine.nextToken();
+                    if (request.equals("GET") || request.equals("HEAD")) {
+                        if (request.equals("HEAD")) {
+                            this.request = "HEAD";
+                        }
                         fileName = tokenisedLine.nextToken();
                         if (fileName.startsWith("/") && fileName.length() > 1) {
                             fileName = fileName.substring(1);
@@ -84,7 +92,7 @@ public class HttpResponse implements Runnable{
                         findGeoLocation();
                         try {
                             file = new File(fileName);
-                            if (file.exists()) {
+                            if (file.exists() && !file.isDirectory()) {
                                 this.buildResponse(file, "200", "Ok");
                                 this.respond(outToClient);
                             } else {
@@ -97,15 +105,19 @@ public class HttpResponse implements Runnable{
                             e.printStackTrace();
                         }
                     } else {
+                        this.request = "GET";
                         file = new File(ERROR_400);
                         this.buildResponse(file, "400", "Bad Request");
                         this.respond(outToClient);
                     }
                 } else {
+                    this.request = "GET";
                     file = new File(ERROR_400);
                     this.buildResponse(file, "400", "Bad Request");
                     this.respond(outToClient);
                 }
+                outToClient.close();
+                inFromClient.close();
             } catch(NullPointerException e) {
                 requestMessageLine = "";
                 logException("Null pointer at request message! - likely a problem with a missing file");
@@ -155,6 +167,11 @@ public class HttpResponse implements Runnable{
         this.writerAccessLog.flush();
     }
 
+    /**
+     * This method logs any Exceptions that are thrown in this class.
+     * @param message - reason for exception being thrown
+     */
+
     public void logException(String message) {
         this.writerExceptionLog.println(this.date + " Exception: " + message);
         this.writerExceptionLog.flush();
@@ -183,7 +200,9 @@ public class HttpResponse implements Runnable{
             outToClient.writeBytes(this.contentType);
         }
         outToClient.writeBytes("\r\n");
-        outToClient.write(this.fileInBytes, 0, this.numOfBytes);
+        if (this.request.equals("GET")){
+            outToClient.write(this.fileInBytes, 0, this.numOfBytes);
+        }
         outToClient.writeBytes("Location: " + getLocation() + "; " + tcpConnection());
     }
 
@@ -242,8 +261,8 @@ public class HttpResponse implements Runnable{
             content = "Content-Type:image/gif\r\n";
         if (fileName.endsWith(".html"))
             content = "Content-Type:text/html\r\n";
-        if (fileName.endsWith(".Server.css"))
-            content = "Content-Type:text/Server.css\r\n";
+        if (fileName.endsWith(".css"))
+            content = "Content-Type:text/css\r\n";
         if (fileName.endsWith(".ico"))
             content = "Content-Type:image/x-icon\r\n";
         return content;
@@ -259,13 +278,18 @@ public class HttpResponse implements Runnable{
     }
 
     /**
-     *
-     * @param file
+     * This method sets the file of the httpResponse object.
+     * @param file the file used by the response
      */
 
     public void setFile(File file) {
         this.file = file;
     }
+
+    /**
+     * This method returns the location of the host that sent a request.
+     * @return - the location of the host
+     */
 
     public String getLocation() {
         return location;

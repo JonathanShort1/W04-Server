@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>W04 - Deploying a server</title>
-    <link rel="stylesheet" type="text/css" href="Server/css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script>
+        if (window.location.pathname === "/") {
+            window.location.replace("Server/index.html");
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -15,23 +21,23 @@
             <li class="done">log file contains: Client IP, file requested, timestamp, allow logfile to be requested</li>
             <li class="done">Runs as background process</li>
             <li class="done">Multi threading new thread for each connection</li>
-            <li>Start up and closing functionality with option of port number, log file, document-root</li>
-            <li>initially returns tuple of TCP connection before main request</li>
+            <li class="done">GeoLocation report</li>
+            <li class="done">initially returns tuple of TCP connection before main request</li>
+            <li>Start up and closing functionality with option of document-root</li>
             <li>instructions on how to restart</li>
-            <li>GeoLocation report</li>
-            <li>JUnit test HttpResponse</li>
-            <li>Create cookies</li>
-            <li>POST and HEAD</li>
+            <li>ENUMS for Methods, errors, responses</li>
         </ul>
 
-        <p>Here is the Access <a href="Server/logs/AccessLog.log">Log file</a></p>
-        <p>Here is the Exceptions <a href="Server/logs/exceptionLog.log">Log file</a></p>
-        <p>Here is the Meta Data <a href="Server/logs/metaDataLog.log">Log file</a>, this contains the host address & port and geolocation of such host</p>
+        <p>Here is the <b>default</b> Access <a href="logs/AccessLog.log">Log file</a></p>
+        <p>Here is the Exceptions <a href="logs/exceptionLog.log">Log file</a></p>
+        <p>Here is the Meta Data <a href="logs/metaDataLog.log">Log file</a>, this contains the host address & port and geolocation of such host</p>
         <!--Tree url-->
         <!--https://www.google.co.uk/search?q=tree&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjE6f2X3eHWAhVILcAKHW2JAl4Q_AUICigB&biw=1920&bih=1014#imgrc=XjQJUnNyQnJnZM:-->
         <!--gif url-->
         <!--https://giphy.com/gifs/screen-monitor-closeup-26tn33aiTi1jkl6H6/download-->
-        <p>Here is an image of a tree <img src="Server/images/tree.jpg" height="100px" width="100px"> and a gif <img src="Server/images/giphy-downsized.gif" height="100px" width="100px"></p>
+        <p>Here is an image of a tree <img src="images/tree.jpg" height="100px" width="100px"> and a gif <img src="images/giphy-downsized.gif" height="100px" width="100px"></p>
+
+
     </div>
 </body>
 </html>

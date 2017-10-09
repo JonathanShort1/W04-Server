@@ -10,6 +10,7 @@ class WebServer {
     private static final String DEFAULT_LOG_FILE = "Server/logs/AccessLog.log";
     private static final String EXCEPTION_LOG_FILE = "Server/logs/exceptionLog.log";
     private static final String METADATA_LOG_FILE = "Server/logs/metaDataLog.log";
+    private static final String DOCUMENT_ROOT = System.setProperty("my.base.dir","Server"); //for paths in the html files
 
     public static void main(String argv[]) {
         int portNumber = DEFAULT_PORT;
@@ -25,9 +26,8 @@ class WebServer {
                 e.printStackTrace();
             }
             if (argv.length > 1) {
-                if (new File(argv[1]).exists()) {
-                    accessLogFileName = argv[1];
-                }
+                accessLogFileName = argv[1];
+                System.out.println(accessLogFileName);
             }
         }
 
@@ -38,7 +38,7 @@ class WebServer {
             while(running){
                 try {
                     Socket socket = listenSocket.accept();
-                    HttpResponse response = new HttpResponse(accessLogFileName, EXCEPTION_LOG_FILE, METADATA_LOG_FILE, socket);
+                    HttpResponse response = new HttpResponse(DOCUMENT_ROOT, accessLogFileName, EXCEPTION_LOG_FILE, METADATA_LOG_FILE, socket);
                     response.start();
                 } catch (IOException e) {
                     System.out.println("Response creation has failed - wrong file names given for log files");

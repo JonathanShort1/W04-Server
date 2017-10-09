@@ -9,9 +9,9 @@ import java.util.StringTokenizer;
 
 public class HttpResponse implements Runnable{
 
-    private static final String HOME_PAGE = "Server/index.html";
-    private static final String ERROR_404 = "Server/error404.html";
-    private static final String ERROR_400 = "Server/error400.html";
+    private static final String HOME_PAGE = "index.html";
+    private static final String ERROR_404 = "error404.html";
+    private static final String ERROR_400 = "error400.html";
     private static final String HTTP_V = "HTTP/1.0";
 
     private String documentRoot;
@@ -43,9 +43,9 @@ public class HttpResponse implements Runnable{
     HttpResponse(String documentRoot, String accessLog, String exceptionLog, String metaData, Socket socket) throws IOException {
         this.documentRoot = documentRoot;
         this.connectionSocket = socket;
-        this.writerAccessLog = new PrintWriter(new FileWriter(new File(documentRoot,accessLog), true));
-        this.writerExceptionLog = new PrintWriter(new FileWriter(exceptionLog, true));
-        this.writerMetaData = new PrintWriter(new FileWriter(metaData, true));
+        this.writerAccessLog = new PrintWriter(new FileWriter(documentRoot + accessLog, true));
+        this.writerExceptionLog = new PrintWriter(new FileWriter(documentRoot + exceptionLog, true));
+        this.writerMetaData = new PrintWriter(new FileWriter(documentRoot + metaData, true));
         this.date = new Date().toString();
 
     }
@@ -55,9 +55,19 @@ public class HttpResponse implements Runnable{
      */
 
     public void start() {
-        if (thread == null) {
-            thread = new Thread(this, "Connection");
-            thread.start();
+        if (this.thread == null) {
+            this.thread = new Thread(this, "Connection");
+            this.thread.start();
+        }
+    }
+
+    /**
+     * This method makes sure the thread will stop.
+     */
+
+    public void stop(){
+        if (this.thread.isAlive()) {
+            this.thread.interrupt();
         }
     }
 
@@ -89,14 +99,16 @@ public class HttpResponse implements Runnable{
                         } else if (fileName.equals("/")) {
                             fileName = HOME_PAGE;
                         }
+
                         findGeoLocation();
+
                         try {
-                            file = new File(fileName);
+                            file = new File(documentRoot + fileName);
                             if (file.exists() && !file.isDirectory()) {
                                 this.buildResponse(file, "200", "Ok");
                                 this.respond(outToClient);
                             } else {
-                                file = new File(ERROR_404);
+                                file = new File( documentRoot + ERROR_404);
                                 this.buildResponse(file, "404", "Not Found");
                                 this.respond(outToClient);
                             }
@@ -105,12 +117,12 @@ public class HttpResponse implements Runnable{
                             e.printStackTrace();
                         }
                     } else {
-                        file = new File(ERROR_400);
+                        file = new File(documentRoot + ERROR_400);
                         this.buildResponse(file, "400", "Bad Request");
                         this.respond(outToClient);
                     }
                 } else {
-                    file = new File(ERROR_400);
+                    file = new File(documentRoot + ERROR_400);
                     this.buildResponse(file, "400", "Bad Request");
                     this.respond(outToClient);
                 }
@@ -131,6 +143,7 @@ public class HttpResponse implements Runnable{
         this.writerAccessLog.close();
         this.writerExceptionLog.close();
         this.writerMetaData.close();
+        stop();
     }
 
     /**
@@ -170,7 +183,7 @@ public class HttpResponse implements Runnable{
      * @param message - reason for exception being thrown
      */
 
-    public void logException(String message) {
+    private void logException(String message) {
         this.writerExceptionLog.println(this.date + " Exception: " + message);
         this.writerExceptionLog.flush();
     }
@@ -179,7 +192,7 @@ public class HttpResponse implements Runnable{
      * This method logs the host and local address and port respectively and the location of the host.
      */
 
-    public void logMetaData() {
+    private void logMetaData() {
         this.writerMetaData.println("Date: " + this.date + tcpConnection() + "; " + "Location: " + getLocation());
     }
 
@@ -190,7 +203,7 @@ public class HttpResponse implements Runnable{
      * @throws IOException - if the outputStream is not instantiated properly.
      */
 
-    public void respond(DataOutputStream outToClient) throws IOException {
+    private void respond(DataOutputStream outToClient) throws IOException {
         outToClient.writeBytes(HTTP_V + " " + this.status + " " + this.reasonPhrase + "\r\n");
         outToClient.writeBytes(this.date + "\r\n");
         outToClient.writeBytes("Content-Length: + " + this.numOfBytes + "\r\n");
@@ -208,7 +221,8 @@ public class HttpResponse implements Runnable{
      * This method build a string of the host and local address and port respectively.
      * @return a string of the host and local address and ports
      */
-    public String tcpConnection(){
+
+    private String tcpConnection(){
         String tcpConnection;
         tcpConnection = "Host address: " + this.connectionSocket.getInetAddress().getHostAddress() + ","
                 + " Port: " + this.connectionSocket.getPort() + ";"
@@ -222,7 +236,7 @@ public class HttpResponse implements Runnable{
      * @return the location of a given IP address.
      */
 
-    public void findGeoLocation() {
+    private void findGeoLocation() {
         GeoApiResult geoApiResult = new GeoApiResult(this.connectionSocket.getInetAddress().getHostAddress());
         this.location = geoApiResult.findLocation();
     }
@@ -232,7 +246,7 @@ public class HttpResponse implements Runnable{
      * @param status of the http response.
      */
 
-    public void setStatus(String status) {
+    private void setStatus(String status) {
         this.status = status;
     }
 
@@ -241,7 +255,7 @@ public class HttpResponse implements Runnable{
      * @param reasonPhrase the reason phrase of the http response.
      */
 
-    public void setReasonPhrase(String reasonPhrase) {
+    private void setReasonPhrase(String reasonPhrase) {
         this.reasonPhrase = reasonPhrase;
     }
 
@@ -251,7 +265,7 @@ public class HttpResponse implements Runnable{
      * @return the messages used in the http response head.
      */
 
-    public String findContentType(String fileName) {
+    private String findContentType(String fileName) {
         String content = "";
         if (fileName.endsWith(".jpg"))
             content = "Content-Type:image/jpeg\r\n";
@@ -271,7 +285,7 @@ public class HttpResponse implements Runnable{
      * @param contentType
      */
 
-    public void setContentType(String contentType) {
+    private void setContentType(String contentType) {
         this.contentType = contentType;
     }
 
@@ -280,7 +294,7 @@ public class HttpResponse implements Runnable{
      * @param file the file used by the response
      */
 
-    public void setFile(File file) {
+    private void setFile(File file) {
         this.file = file;
     }
 
@@ -289,7 +303,7 @@ public class HttpResponse implements Runnable{
      * @return - the location of the host
      */
 
-    public String getLocation() {
+    private String getLocation() {
         return location;
     }
 

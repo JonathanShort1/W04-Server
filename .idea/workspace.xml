@@ -5,6 +5,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WebServer.class" afterPath="$PROJECT_DIR$/src/WebServer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpResponse.java" afterPath="$PROJECT_DIR$/src/HttpResponse.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Server/error400.html" afterPath="$PROJECT_DIR$/src/Server/error400.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Server/error404.html" afterPath="$PROJECT_DIR$/src/Server/error404.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Server/index.html" afterPath="$PROJECT_DIR$/src/Server/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Server/logs/AccessLog.log" afterPath="$PROJECT_DIR$/src/Server/logs/AccessLog.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Server/logs/exceptionLog.log" afterPath="$PROJECT_DIR$/src/Server/logs/exceptionLog.log" />
@@ -19,33 +21,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.64751184">
+    <splitter split-orientation="horizontal" split-proportion="0.43910256">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="WebServer.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/WebServer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="166">
-                  <caret line="43" column="70" lean-forward="false" selection-start-line="43" selection-start-column="70" selection-end-line="43" selection-end-column="70" />
+                <state relative-caret-position="936">
+                  <caret line="53" column="72" lean-forward="false" selection-start-line="53" selection-start-column="72" selection-end-line="53" selection-end-column="72" />
                   <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="AccessLog.log" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Server/logs/AccessLog.log">
-              <provider selected="true" editor-type-id="LogFileEditorProvider">
-                <state relative-caret-position="313">
-                  <caret line="2030" column="71" lean-forward="true" selection-start-line="2030" selection-start-column="71" selection-end-line="2030" selection-end-column="71" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="exceptionLog.log" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Server/logs/exceptionLog.log">
-              <provider selected="true" editor-type-id="LogFileEditorProvider">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                 </state>
               </provider>
             </entry>
@@ -54,19 +38,18 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="HttpResponse.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="HttpResponse.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/HttpResponse.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="103" column="67" lean-forward="false" selection-start-line="103" selection-start-column="67" selection-end-line="103" selection-end-column="67" />
+                <state relative-caret-position="1566">
+                  <caret line="102" column="9" lean-forward="false" selection-start-line="102" selection-start-column="9" selection-end-line="102" selection-end-column="9" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="docComment;method#HttpResponse#0;class#HttpResponse#0" expanded="false" />
-                    <element signature="method#HttpResponse#0;class#HttpResponse#0" expanded="false" />
                     <element signature="docComment;method#start#0;class#HttpResponse#0" expanded="false" />
-                    <element signature="method#start#0;class#HttpResponse#0" expanded="false" />
+                    <element signature="docComment;method#stop#0;class#HttpResponse#0" expanded="false" />
+                    <element signature="method#stop#0;class#HttpResponse#0" expanded="false" />
                     <element signature="docComment;method#buildResponse#0;class#HttpResponse#0" expanded="false" />
-                    <element signature="method#buildResponse#0;class#HttpResponse#0" expanded="false" />
                     <element signature="docComment;method#logAccess#0;class#HttpResponse#0" expanded="false" />
                     <element signature="method#logAccess#0;class#HttpResponse#0" expanded="false" />
                     <element signature="docComment;method#logException#0;class#HttpResponse#0" expanded="false" />
@@ -74,7 +57,6 @@
                     <element signature="docComment;method#logMetaData#0;class#HttpResponse#0" expanded="false" />
                     <element signature="method#logMetaData#0;class#HttpResponse#0" expanded="false" />
                     <element signature="docComment;method#respond#0;class#HttpResponse#0" expanded="false" />
-                    <element signature="docComment;method#tcpConnection#0;class#HttpResponse#0" expanded="false" />
                     <element signature="method#tcpConnection#0;class#HttpResponse#0" expanded="false" />
                     <element signature="docComment;method#findGeoLocation#0;class#HttpResponse#0" expanded="false" />
                     <element signature="method#findGeoLocation#0;class#HttpResponse#0" expanded="false" />
@@ -86,16 +68,6 @@
                     <element signature="docComment;method#setFile#0;class#HttpResponse#0" expanded="false" />
                     <element signature="docComment;method#getLocation#0;class#HttpResponse#0" expanded="false" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Server/index.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="468">
-                  <caret line="26" column="51" lean-forward="false" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -137,12 +109,12 @@
         <option value="$PROJECT_DIR$/src/Server/logs/metaDataLog.log" />
         <option value="$PROJECT_DIR$/src/GeoApiResult.java" />
         <option value="$PROJECT_DIR$/src/Server/logs/AccessLog.log" />
-        <option value="$PROJECT_DIR$/src/Server/error404.html" />
-        <option value="$PROJECT_DIR$/src/Server/error400.html" />
         <option value="$PROJECT_DIR$/src/Server/post.html" />
         <option value="$PROJECT_DIR$/src/StatusCode.java" />
-        <option value="$PROJECT_DIR$/src/HttpResponse.java" />
         <option value="$PROJECT_DIR$/src/Server/index.html" />
+        <option value="$PROJECT_DIR$/src/Server/error400.html" />
+        <option value="$PROJECT_DIR$/src/Server/error404.html" />
+        <option value="$PROJECT_DIR$/src/HttpResponse.java" />
         <option value="$PROJECT_DIR$/src/WebServer.java" />
       </list>
     </option>
@@ -174,8 +146,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -194,19 +164,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Server" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="W04-Server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="W04-Server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -659,7 +624,8 @@
       <workItem from="1507457618274" duration="4739000" />
       <workItem from="1507466620926" duration="5837000" />
       <workItem from="1507489617152" duration="10374000" />
-      <workItem from="1507539721804" duration="3304000" />
+      <workItem from="1507539721804" duration="3415000" />
+      <workItem from="1507553849097" duration="5023000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1507235095113</created>
@@ -773,14 +739,22 @@
       <option name="project" value="LOCAL" />
       <updated>1507539876896</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Start and stop being to work">
+      <created>1507543038443</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1507543038443</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50878000" />
+    <option name="totallyTimeSpent" value="56012000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="27" width="1920" height="1020" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -791,10 +765,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30672747" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16305587" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0982906" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13942307" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -833,11 +807,20 @@
     <MESSAGE value="Fixed the null pointer at requestLine" />
     <MESSAGE value="GeoLocation In Log files" />
     <MESSAGE value="Added image and gif to index page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added image and gif to index page" />
+    <MESSAGE value="Start and stop being to work" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start and stop being to work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/HttpResponse.java</url>
+          <line>43</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -857,11 +840,10 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#HttpResponse#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#HttpResponse#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#start#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#start#0;class#HttpResponse#0" expanded="false" />
+            <element signature="docComment;method#stop#0;class#HttpResponse#0" expanded="false" />
+            <element signature="method#stop#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#buildResponse#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#buildResponse#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#logAccess#0;class#HttpResponse#0" expanded="false" />
             <element signature="method#logAccess#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#logException#0;class#HttpResponse#0" expanded="false" />
@@ -869,7 +851,6 @@
             <element signature="docComment;method#logMetaData#0;class#HttpResponse#0" expanded="false" />
             <element signature="method#logMetaData#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#respond#0;class#HttpResponse#0" expanded="false" />
-            <element signature="docComment;method#tcpConnection#0;class#HttpResponse#0" expanded="false" />
             <element signature="method#tcpConnection#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#findGeoLocation#0;class#HttpResponse#0" expanded="false" />
             <element signature="method#findGeoLocation#0;class#HttpResponse#0" expanded="false" />
@@ -907,11 +888,10 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#HttpResponse#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#HttpResponse#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#start#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#start#0;class#HttpResponse#0" expanded="false" />
+            <element signature="docComment;method#stop#0;class#HttpResponse#0" expanded="false" />
+            <element signature="method#stop#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#buildResponse#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#buildResponse#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#logAccess#0;class#HttpResponse#0" expanded="false" />
             <element signature="method#logAccess#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#logException#0;class#HttpResponse#0" expanded="false" />
@@ -919,7 +899,6 @@
             <element signature="docComment;method#logMetaData#0;class#HttpResponse#0" expanded="false" />
             <element signature="method#logMetaData#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#respond#0;class#HttpResponse#0" expanded="false" />
-            <element signature="docComment;method#tcpConnection#0;class#HttpResponse#0" expanded="false" />
             <element signature="method#tcpConnection#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#findGeoLocation#0;class#HttpResponse#0" expanded="false" />
             <element signature="method#findGeoLocation#0;class#HttpResponse#0" expanded="false" />
@@ -980,11 +959,10 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#HttpResponse#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#HttpResponse#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#start#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#start#0;class#HttpResponse#0" expanded="false" />
+            <element signature="docComment;method#stop#0;class#HttpResponse#0" expanded="false" />
+            <element signature="method#stop#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#buildResponse#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#buildResponse#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#logAccess#0;class#HttpResponse#0" expanded="false" />
             <element signature="method#logAccess#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#logException#0;class#HttpResponse#0" expanded="false" />
@@ -992,7 +970,6 @@
             <element signature="docComment;method#logMetaData#0;class#HttpResponse#0" expanded="false" />
             <element signature="method#logMetaData#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#respond#0;class#HttpResponse#0" expanded="false" />
-            <element signature="docComment;method#tcpConnection#0;class#HttpResponse#0" expanded="false" />
             <element signature="method#tcpConnection#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#findGeoLocation#0;class#HttpResponse#0" expanded="false" />
             <element signature="method#findGeoLocation#0;class#HttpResponse#0" expanded="false" />
@@ -1044,11 +1021,10 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#HttpResponse#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#HttpResponse#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#start#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#start#0;class#HttpResponse#0" expanded="false" />
+            <element signature="docComment;method#stop#0;class#HttpResponse#0" expanded="false" />
+            <element signature="method#stop#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#buildResponse#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#buildResponse#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#logAccess#0;class#HttpResponse#0" expanded="false" />
             <element signature="method#logAccess#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#logException#0;class#HttpResponse#0" expanded="false" />
@@ -1056,7 +1032,6 @@
             <element signature="docComment;method#logMetaData#0;class#HttpResponse#0" expanded="false" />
             <element signature="method#logMetaData#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#respond#0;class#HttpResponse#0" expanded="false" />
-            <element signature="docComment;method#tcpConnection#0;class#HttpResponse#0" expanded="false" />
             <element signature="method#tcpConnection#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#findGeoLocation#0;class#HttpResponse#0" expanded="false" />
             <element signature="method#findGeoLocation#0;class#HttpResponse#0" expanded="false" />
@@ -1100,11 +1075,10 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#HttpResponse#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#HttpResponse#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#start#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#start#0;class#HttpResponse#0" expanded="false" />
+            <element signature="docComment;method#stop#0;class#HttpResponse#0" expanded="false" />
+            <element signature="method#stop#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#buildResponse#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#buildResponse#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#logAccess#0;class#HttpResponse#0" expanded="false" />
             <element signature="method#logAccess#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#logException#0;class#HttpResponse#0" expanded="false" />
@@ -1112,7 +1086,6 @@
             <element signature="docComment;method#logMetaData#0;class#HttpResponse#0" expanded="false" />
             <element signature="method#logMetaData#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#respond#0;class#HttpResponse#0" expanded="false" />
-            <element signature="docComment;method#tcpConnection#0;class#HttpResponse#0" expanded="false" />
             <element signature="method#tcpConnection#0;class#HttpResponse#0" expanded="false" />
             <element signature="docComment;method#findGeoLocation#0;class#HttpResponse#0" expanded="false" />
             <element signature="method#findGeoLocation#0;class#HttpResponse#0" expanded="false" />
@@ -1235,69 +1208,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/error404.html">
+    <entry file="file://$PROJECT_DIR$/src/Server/post.html" />
+    <entry file="file://$PROJECT_DIR$/src/StatusCode.java" />
+    <entry file="file://$PROJECT_DIR$/src/Server/logs/AccessLog.log">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="-1155">
+          <caret line="1052" column="69" lean-forward="true" selection-start-line="1052" selection-start-column="69" selection-end-line="1052" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="36540">
+          <caret line="2030" column="71" lean-forward="false" selection-start-line="2030" selection-start-column="71" selection-end-line="2030" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Server/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        <state relative-caret-position="144">
+          <caret line="8" column="47" lean-forward="false" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/running.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Server/error400.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        <state relative-caret-position="180">
+          <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/post.html" />
-    <entry file="file://$PROJECT_DIR$/src/StatusCode.java">
+    <entry file="file://$PROJECT_DIR$/src/Server/error404.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="12" lean-forward="false" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HttpResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="103" column="67" lean-forward="false" selection-start-line="103" selection-start-column="67" selection-end-line="103" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#HttpResponse#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#HttpResponse#0;class#HttpResponse#0" expanded="false" />
-            <element signature="docComment;method#start#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#start#0;class#HttpResponse#0" expanded="false" />
-            <element signature="docComment;method#buildResponse#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#buildResponse#0;class#HttpResponse#0" expanded="false" />
-            <element signature="docComment;method#logAccess#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#logAccess#0;class#HttpResponse#0" expanded="false" />
-            <element signature="docComment;method#logException#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#logException#0;class#HttpResponse#0" expanded="false" />
-            <element signature="docComment;method#logMetaData#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#logMetaData#0;class#HttpResponse#0" expanded="false" />
-            <element signature="docComment;method#respond#0;class#HttpResponse#0" expanded="false" />
-            <element signature="docComment;method#tcpConnection#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#tcpConnection#0;class#HttpResponse#0" expanded="false" />
-            <element signature="docComment;method#findGeoLocation#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#findGeoLocation#0;class#HttpResponse#0" expanded="false" />
-            <element signature="docComment;method#setStatus#0;class#HttpResponse#0" expanded="false" />
-            <element signature="docComment;method#setReasonPhrase#0;class#HttpResponse#0" expanded="false" />
-            <element signature="docComment;method#findContentType#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#findContentType#0;class#HttpResponse#0" expanded="false" />
-            <element signature="docComment;method#setContentType#0;class#HttpResponse#0" expanded="false" />
-            <element signature="docComment;method#setFile#0;class#HttpResponse#0" expanded="false" />
-            <element signature="docComment;method#getLocation#0;class#HttpResponse#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" column="51" lean-forward="false" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+        <state relative-caret-position="180">
+          <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -1309,24 +1262,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/logs/AccessLog.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="313">
-          <caret line="2030" column="71" lean-forward="true" selection-start-line="2030" selection-start-column="71" selection-end-line="2030" selection-end-column="71" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="-1155">
-          <caret line="1052" column="69" lean-forward="true" selection-start-line="1052" selection-start-column="69" selection-end-line="1052" selection-end-column="69" />
+    <entry file="file://$PROJECT_DIR$/src/WebServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="936">
+          <caret line="53" column="72" lean-forward="false" selection-start-line="53" selection-start-column="72" selection-end-line="53" selection-end-column="72" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WebServer.java">
+    <entry file="file://$PROJECT_DIR$/src/HttpResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="43" column="70" lean-forward="false" selection-start-line="43" selection-start-column="70" selection-end-line="43" selection-end-column="70" />
-          <folding />
+        <state relative-caret-position="1566">
+          <caret line="102" column="9" lean-forward="false" selection-start-line="102" selection-start-column="9" selection-end-line="102" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#HttpResponse#0;class#HttpResponse#0" expanded="false" />
+            <element signature="docComment;method#start#0;class#HttpResponse#0" expanded="false" />
+            <element signature="docComment;method#stop#0;class#HttpResponse#0" expanded="false" />
+            <element signature="method#stop#0;class#HttpResponse#0" expanded="false" />
+            <element signature="docComment;method#buildResponse#0;class#HttpResponse#0" expanded="false" />
+            <element signature="docComment;method#logAccess#0;class#HttpResponse#0" expanded="false" />
+            <element signature="method#logAccess#0;class#HttpResponse#0" expanded="false" />
+            <element signature="docComment;method#logException#0;class#HttpResponse#0" expanded="false" />
+            <element signature="method#logException#0;class#HttpResponse#0" expanded="false" />
+            <element signature="docComment;method#logMetaData#0;class#HttpResponse#0" expanded="false" />
+            <element signature="method#logMetaData#0;class#HttpResponse#0" expanded="false" />
+            <element signature="docComment;method#respond#0;class#HttpResponse#0" expanded="false" />
+            <element signature="method#tcpConnection#0;class#HttpResponse#0" expanded="false" />
+            <element signature="docComment;method#findGeoLocation#0;class#HttpResponse#0" expanded="false" />
+            <element signature="method#findGeoLocation#0;class#HttpResponse#0" expanded="false" />
+            <element signature="docComment;method#setStatus#0;class#HttpResponse#0" expanded="false" />
+            <element signature="docComment;method#setReasonPhrase#0;class#HttpResponse#0" expanded="false" />
+            <element signature="docComment;method#findContentType#0;class#HttpResponse#0" expanded="false" />
+            <element signature="method#findContentType#0;class#HttpResponse#0" expanded="false" />
+            <element signature="docComment;method#setContentType#0;class#HttpResponse#0" expanded="false" />
+            <element signature="docComment;method#setFile#0;class#HttpResponse#0" expanded="false" />
+            <element signature="docComment;method#getLocation#0;class#HttpResponse#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

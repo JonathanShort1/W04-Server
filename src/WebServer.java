@@ -7,14 +7,21 @@ class WebServer {
     private static final int PORT_MAX = 60000;
     private static final int DEFAULT_PORT = 45689;
 
-    private static final String DEFAULT_LOG_FILE = "Server/logs/AccessLog.log";
-    private static final String EXCEPTION_LOG_FILE = "Server/logs/exceptionLog.log";
-    private static final String METADATA_LOG_FILE = "Server/logs/metaDataLog.log";
-    private static final String DOCUMENT_ROOT = System.setProperty("my.base.dir","Server"); //for paths in the html files
+    private static final String DEFAULT_LOG_FILE = "logs/AccessLog.log";
+    private static final String EXCEPTION_LOG_FILE = "logs/exceptionLog.log";
+    private static final String METADATA_LOG_FILE = "logs/metaDataLog.log";
+    private static final String RUN_FILE = "running.txt";
+    private static final String DOCUMENT_ROOT = "Server/"; //for paths in the html files
+
+    /**
+     * This is the main method that is runnable from the terminal.
+     * @param argv - standard parameter for main method.
+     */
 
     public static void main(String argv[]) {
         int portNumber = DEFAULT_PORT;
         String accessLogFileName = DEFAULT_LOG_FILE;
+        String documentRoot = DOCUMENT_ROOT;
         String command = "start";
 
         if (argv.length > 0) {
@@ -28,53 +35,72 @@ class WebServer {
                 } catch (IllegalArgumentException e) {
                     e.printStackTrace();
                 }
-                if (argv.length > 2) {
-                    accessLogFileName = argv[2];
-                    System.out.println(accessLogFileName);
-                }
+            }
+            if (argv.length > 2) {
+                accessLogFileName = argv[2];
+            }
+            if (argv.length > 3) {
+                documentRoot = argv[3];
             }
         }
 
-        PrintWriter writer = null;
-        File runFile = null;
+        chooseCommand(command, portNumber, accessLogFileName,documentRoot);
+    }
+
+    /**
+     * This method controls what happens given an input.
+     * @param command the command given
+     * @param portNumber the port number of the server socket
+     * @param documentRoot - the directory holding all the server files.
+     * @param accessLogFileName the location of the access log
+     */
+
+    public static void chooseCommand(String command, int portNumber, String accessLogFileName, String documentRoot) {
+        File runFile;
         switch (command) {
             case "start" :
                 try {
                     System.out.println("starting server");
-                    Runtime.getRuntime().exec("java WebServer run &");
+                    Runtime.getRuntime().exec("java WebServer run " + portNumber + " " + accessLogFileName + documentRoot + " &");
+                    Runtime.getRuntime().exec("touch " + RUN_FILE);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 break;
             case "stop" :
                 System.out.println("Stopping server");
-                if ((runFile = new File("running.txt")).exists()) {
+                if ((runFile = new File(RUN_FILE)).exists()) {
                     runFile.delete();
                 }
                 break;
             case "run" :
-                try {
-                    writer = new PrintWriter("running.txt");
-                    runFile = new File("running.txt");
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-                run(portNumber, accessLogFileName, runFile);
+                runFile = new File(RUN_FILE);
+                run(portNumber, accessLogFileName, runFile, documentRoot);
                 break;
             default:
-                System.out.println("please enter start,stop or forward");
+                System.out.println("please enter start or stop");
                 System.exit(0);
         }
     }
 
-    public static void run(int portNumber, String accessLogFileName, File runFile) {
+    /**
+     * This method handles the server.
+     * A new thread is spawned every time a connection is made.
+     * This loop runs while the RUN_FILE exists.
+     * @param portNumber - port number for the server socket
+     * @param accessLogFileName - location of access file
+     * @param runFile - the location of the run file
+     * @param documentRoot - the directory holding all the html and server files.
+     */
+
+    public static void run(int portNumber, String accessLogFileName, File runFile, String documentRoot) {
         ServerSocket listenSocket;
         try {
             listenSocket = new ServerSocket(portNumber);
             while(runFile.exists()){
                 try {
                     Socket socket = listenSocket.accept();
-                    HttpResponse response = new HttpResponse(DOCUMENT_ROOT, accessLogFileName, EXCEPTION_LOG_FILE, METADATA_LOG_FILE, socket);
+                    HttpResponse response = new HttpResponse(documentRoot, accessLogFileName, EXCEPTION_LOG_FILE, METADATA_LOG_FILE, socket);
                     response.start();
                 } catch (IOException e) {
                     System.out.println("Response creation has failed - wrong file names given for log files");
@@ -85,6 +111,8 @@ class WebServer {
             System.out.println("Server socket creation has failed");
             e.printStackTrace();
         }
+        System.out.println("Stopping server");
+        System.exit(0);
     }
 }
 

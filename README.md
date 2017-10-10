@@ -1,7 +1,7 @@
 # W04-Server
 Second year practical to deploy a server using java standard libraries.
 How to run:
- * The server should be running at <user_name>.host.cs.st-andrews.ac.uk:45689
+ * The server should be running at js321.host.cs.st-andrews.ac.uk:45689
  * If the server is running the file "running.txt" will exist in the source folder.
  * To compile the Java file use: javac WebServer.java
  * To Start the server use: Java WebServer start <portnumber> <logfile> <serverfolder> 

@@ -2358,3 +2358,15 @@
 0:0:0:0:0:0:0:1 [Tue Oct 10 16:46:40 BST 2017] "GET /css/style.css HTTP/1.1" SUCCESS 58
 0:0:0:0:0:0:0:1 [Tue Oct 10 16:46:40 BST 2017] "GET /images/tree.jpg HTTP/1.1" SUCCESS 139255
 0:0:0:0:0:0:0:1 [Tue Oct 10 16:46:40 BST 2017] "GET /images/giphy-downsized.gif HTTP/1.1" SUCCESS 1898421
+138.251.29.83 [Tue Oct 10 17:01:52 BST 2017] "GET /index.html HTTP/1.1" 200 1913
+138.251.29.83 [Tue Oct 10 17:01:53 BST 2017] "GET /css/style.css HTTP/1.1" 200 58
+138.251.29.83 [Tue Oct 10 17:01:53 BST 2017] "GET /images/tree.jpg HTTP/1.1" 200 139255
+138.251.29.83 [Tue Oct 10 17:01:53 BST 2017] "GET /images/giphy-downsized.gif HTTP/1.1" 200 1898421
+138.251.29.83 [Tue Oct 10 17:02:59 BST 2017] "GET / HTTP/1.1" 200 1913
+138.251.29.83 [Tue Oct 10 17:02:59 BST 2017] "GET /css/style.css HTTP/1.1" 200 58
+138.251.29.83 [Tue Oct 10 17:02:59 BST 2017] "GET /images/tree.jpg HTTP/1.1" 200 139255
+138.251.29.83 [Tue Oct 10 17:02:59 BST 2017] "GET /images/giphy-downsized.gif HTTP/1.1" 200 1898421
+138.251.29.83 [Tue Oct 10 17:03:13 BST 2017] "GET / HTTP/1.1" 200 1913
+138.251.29.83 [Tue Oct 10 17:03:13 BST 2017] "GET /images/tree.jpg HTTP/1.1" 200 139255
+138.251.29.83 [Tue Oct 10 17:03:13 BST 2017] "GET /css/style.css HTTP/1.1" 200 58
+138.251.29.83 [Tue Oct 10 17:03:13 BST 2017] "GET /images/giphy-downsized.gif HTTP/1.1" 200 1898421

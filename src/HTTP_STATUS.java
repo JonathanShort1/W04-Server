@@ -1,3 +1,7 @@
+/**
+ * This Enum is for the http response status codes implemented.
+ */
+
 public enum HTTP_STATUS {
     SUCCESS(200),
     FILE_NOT_FOUND(404),
@@ -7,9 +11,5 @@ public enum HTTP_STATUS {
 
     HTTP_STATUS(int status) {
         this.status = status;
-    }
-
-    public int getStatus() {
-        return this.status;
     }
 }

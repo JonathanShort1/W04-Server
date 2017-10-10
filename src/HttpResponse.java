@@ -101,11 +101,11 @@ public class HttpResponse implements Runnable{
                         try {
                             file = new File(documentRoot + fileName);
                             if (file.exists() && !file.isDirectory()) {
-                                this.buildResponse(file, "200", "Ok");
+                                this.buildResponse(file, HTTP_STATUS.SUCCESS.toString(), HTTP_PHRASE.OK.toString());
                                 this.respond(outToClient);
                             } else {
                                 file = new File( documentRoot + ERROR_404);
-                                this.buildResponse(file, "404", "Not Found");
+                                this.buildResponse(file, HTTP_STATUS.FILE_NOT_FOUND.toString(), HTTP_PHRASE.NOT_FOUND.toString());
                                 this.respond(outToClient);
                             }
                         } catch (FileNotFoundException e) {
@@ -114,12 +114,12 @@ public class HttpResponse implements Runnable{
                         }
                     } else {
                         file = new File(documentRoot + ERROR_400);
-                        this.buildResponse(file, "400", "Bad Request");
+                        this.buildResponse(file, HTTP_STATUS.BAD_REQUEST.toString(), HTTP_PHRASE.BAD_REQUEST.toString());
                         this.respond(outToClient);
                     }
                 } else {
                     file = new File(documentRoot + ERROR_400);
-                    this.buildResponse(file, "400", "Bad Request");
+                    this.buildResponse(file, HTTP_STATUS.BAD_REQUEST.toString(), HTTP_PHRASE.BAD_REQUEST.toString());
                     this.respond(outToClient);
                 }
                 outToClient.close();

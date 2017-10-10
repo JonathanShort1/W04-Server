@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7da7077-4b7c-4863-8e1f-bf458a5d1aa3" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/HTTP_PHRASE.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/HTTP_STATUS.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WebServer.class" afterPath="$PROJECT_DIR$/src/WebServer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpResponse.java" afterPath="$PROJECT_DIR$/src/HttpResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Server/error404.html" afterPath="$PROJECT_DIR$/src/Server/error404.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Server/index.html" afterPath="$PROJECT_DIR$/src/Server/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Server/logs/AccessLog.log" afterPath="$PROJECT_DIR$/src/Server/logs/AccessLog.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Server/logs/exceptionLog.log" afterPath="$PROJECT_DIR$/src/Server/logs/exceptionLog.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Server/logs/metaDataLog.log" afterPath="$PROJECT_DIR$/src/Server/logs/metaDataLog.log" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +24,8 @@
       <file leaf-file-name="HttpResponse.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/HttpResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="82" column="61" lean-forward="true" selection-start-line="82" selection-start-column="61" selection-end-line="82" selection-end-column="61" />
+            <state relative-caret-position="-54">
+              <caret line="121" column="79" lean-forward="false" selection-start-line="121" selection-start-column="79" selection-end-line="121" selection-end-column="79" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#HttpResponse#0;class#HttpResponse#0" expanded="false" />
@@ -43,9 +46,34 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Server/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="47" lean-forward="false" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+            <state relative-caret-position="396">
+              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HTTP_PHRASE.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/HTTP_PHRASE.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HTTP_STATUS.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/HTTP_STATUS.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+              <folding>
+                <element signature="e#145#146#0" expanded="true" />
+                <element signature="e#181#182#0" expanded="true" />
+                <element signature="e#211#212#0" expanded="true" />
+                <element signature="e#245#246#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,7 +91,7 @@
       <file leaf-file-name="WebServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/WebServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
+            <state relative-caret-position="216">
               <caret line="13" column="57" lean-forward="false" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="57" />
               <folding>
                 <element signature="method#main#0;class#WebServer#0" expanded="false" />
@@ -97,9 +125,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -129,10 +157,12 @@
         <option value="$PROJECT_DIR$/src/Server/logs/AccessLog.log" />
         <option value="$PROJECT_DIR$/src/Server/post.html" />
         <option value="$PROJECT_DIR$/src/StatusCode.java" />
-        <option value="$PROJECT_DIR$/src/Server/index.html" />
         <option value="$PROJECT_DIR$/src/Server/error400.html" />
         <option value="$PROJECT_DIR$/src/WebServer.java" />
         <option value="$PROJECT_DIR$/src/Server/error404.html" />
+        <option value="$PROJECT_DIR$/src/Server/index.html" />
+        <option value="$PROJECT_DIR$/src/HTTP_STATUS.java" />
+        <option value="$PROJECT_DIR$/src/HTTP_PHRASE.java" />
         <option value="$PROJECT_DIR$/src/HttpResponse.java" />
       </list>
     </option>
@@ -762,7 +792,7 @@
       <workItem from="1507553849097" duration="5677000" />
       <workItem from="1507572257157" duration="21000" />
       <workItem from="1507572298218" duration="6038000" />
-      <workItem from="1507642473312" duration="3494000" />
+      <workItem from="1507642473312" duration="6722000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1507235095113</created>
@@ -918,15 +948,21 @@
       <option name="project" value="LOCAL" />
       <updated>1507579072392</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Cleaning up some lines">
+      <created>1507646034668</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1507646034668</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66219000" />
+    <option name="totallyTimeSpent" value="69447000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="111" width="1920" height="1020" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -937,10 +973,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23375143" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23375143" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21260683" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21260683" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -982,7 +1018,8 @@
     <MESSAGE value="Start and stop being to work" />
     <MESSAGE value="Start and stop being to work and relative paths sorted." />
     <MESSAGE value="Start and stop is working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start and stop is working" />
+    <MESSAGE value="Cleaning up some lines" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaning up some lines" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -999,33 +1036,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/HttpResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1566">
-          <caret line="109" column="71" lean-forward="true" selection-start-line="109" selection-start-column="71" selection-end-line="109" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#HttpResponse#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#start#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#stop#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#buildResponse#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#respond#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#logException#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#logMetaData#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#tcpConnection#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#findGeoLocation#0;class#HttpResponse#0" expanded="false" />
-            <element signature="method#findContentType#0;class#HttpResponse#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" column="51" lean-forward="true" selection-start-line="25" selection-start-column="14" selection-end-line="26" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/WebServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1323,13 +1333,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GeoApiResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Server/post.html" />
     <entry file="file://$PROJECT_DIR$/src/StatusCode.java" />
     <entry file="file://$PROJECT_DIR$/src/Server/error400.html">
@@ -1367,17 +1370,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Server/error404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Server/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="47" lean-forward="false" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+        <state relative-caret-position="396">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GeoApiResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HTTP_STATUS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+          <folding>
+            <element signature="e#145#146#0" expanded="true" />
+            <element signature="e#181#182#0" expanded="true" />
+            <element signature="e#211#212#0" expanded="true" />
+            <element signature="e#245#246#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HTTP_PHRASE.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WebServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
+        <state relative-caret-position="216">
           <caret line="13" column="57" lean-forward="false" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="57" />
           <folding>
             <element signature="method#main#0;class#WebServer#0" expanded="false" />
@@ -1387,18 +1427,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/error404.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/HttpResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="82" column="61" lean-forward="true" selection-start-line="82" selection-start-column="61" selection-end-line="82" selection-end-column="61" />
+        <state relative-caret-position="-54">
+          <caret line="121" column="79" lean-forward="false" selection-start-line="121" selection-start-column="79" selection-end-line="121" selection-end-column="79" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#HttpResponse#0;class#HttpResponse#0" expanded="false" />

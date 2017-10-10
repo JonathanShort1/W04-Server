@@ -74,25 +74,21 @@ public class HttpResponse implements Runnable{
     @Override
     public void run() {
         String requestMessageLine;
-        String fileName;
-        DataOutputStream outToClient;
-        BufferedReader inFromClient;
         File file;
-        StringTokenizer tokenisedLine;
 
         try {
-            inFromClient = new BufferedReader(new InputStreamReader(this.connectionSocket.getInputStream()));
-            outToClient = new DataOutputStream(this.connectionSocket.getOutputStream());
+            BufferedReader inFromClient = new BufferedReader(new InputStreamReader(this.connectionSocket.getInputStream()));
+            DataOutputStream outToClient = new DataOutputStream(this.connectionSocket.getOutputStream());
             try {
                 requestMessageLine = inFromClient.readLine();
                 if (requestMessageLine != null) {
-                    tokenisedLine = new StringTokenizer(requestMessageLine);
+                    StringTokenizer tokenisedLine = new StringTokenizer(requestMessageLine);
                     String request = tokenisedLine.nextToken();
                     if (request.equals("GET") || request.equals("HEAD")) {
                         if (request.equals("HEAD")) {
                             this.request = "HEAD";
                         }
-                        fileName = tokenisedLine.nextToken();
+                        String fileName = tokenisedLine.nextToken();
                         if (fileName.startsWith("/") && fileName.length() > 1) {
                             fileName = fileName.substring(1);
                             fileName = fileName.split("\\?")[0];
@@ -166,6 +162,27 @@ public class HttpResponse implements Runnable{
     }
 
     /**
+     * This method writes out the http response including the body.
+     * A line is written out after the file with the content of the meta data log in it.
+     * @param outToClient - the dataOutputStream connected to the socket.
+     * @throws IOException - if the outputStream is not instantiated properly.
+     */
+
+    private void respond(DataOutputStream outToClient) throws IOException {
+        outToClient.writeBytes(HTTP_V + " " + this.status + " " + this.reasonPhrase + "\r\n");
+        outToClient.writeBytes(this.date + "\r\n");
+        outToClient.writeBytes("Content-Length: + " + this.numOfBytes + "\r\n");
+        if (!(this.contentType == null)) {
+            outToClient.writeBytes(this.contentType);
+        }
+        outToClient.writeBytes("\r\n");
+        if (this.request.equals("GET")){
+            outToClient.write(this.fileInBytes, 0, this.numOfBytes);
+        }
+        outToClient.writeBytes("Location: " + getLocation() + "; " + tcpConnection());
+    }
+
+    /**
      * This method logs all access request.
      * The log closely but not strictly follows the Common Log Format.
      * @param requestLine - the request header from the http request.
@@ -196,26 +213,6 @@ public class HttpResponse implements Runnable{
         this.writerMetaData.println("Date: " + this.date + tcpConnection() + "; " + "Location: " + getLocation());
     }
 
-    /**
-     * This method writes out the http response including the body.
-     * A line is written out after the file with the content of the meta data log in it.
-     * @param outToClient - the dataOutputStream connected to the socket.
-     * @throws IOException - if the outputStream is not instantiated properly.
-     */
-
-    private void respond(DataOutputStream outToClient) throws IOException {
-        outToClient.writeBytes(HTTP_V + " " + this.status + " " + this.reasonPhrase + "\r\n");
-        outToClient.writeBytes(this.date + "\r\n");
-        outToClient.writeBytes("Content-Length: + " + this.numOfBytes + "\r\n");
-        if (!(this.contentType == null)) {
-            outToClient.writeBytes(this.contentType);
-        }
-        outToClient.writeBytes("\r\n");
-        if (this.request.equals("GET")){
-            outToClient.write(this.fileInBytes, 0, this.numOfBytes);
-        }
-        outToClient.writeBytes("Location: " + getLocation() + "; " + tcpConnection());
-    }
 
     /**
      * This method build a string of the host and local address and port respectively.
